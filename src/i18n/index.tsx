@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from "react"
+import { createContext, useContext, useEffect, useMemo, useState } from "react"
+import type { ReactNode } from "react"
 import { es } from "./es"
 import { en } from "./en"
 
@@ -45,4 +46,3 @@ export function useI18n() {
   if (!ctx) throw new Error("useI18n must be used within I18nProvider")
   return ctx
 }
-
