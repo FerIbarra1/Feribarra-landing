@@ -4,17 +4,19 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { LanguageToggle } from "@/components/language-toggle"
 import { Menu, X } from "lucide-react"
 import logo from "./../assets/LogoFernandoIbarra2.png"
+import { useI18n } from "@/i18n"
 
 export function Navigation() {
     const [isOpen, setIsOpen] = useState(false)
+    const { t } = useI18n()
 
     const navItems = [
-        { name: "Inicio", href: "#inicio" },
-        { name: "Experiencia", href: "#experiencia" },
-        { name: "Habilidades", href: "#habilidades" },
-        { name: "Proyectos", href: "#proyectos" },
-        { name: "Certificaciones", href: "#certificaciones" },
-        { name: "Contacto", href: "#contacto" },
+        { name: t("nav.home"), href: "#inicio" },
+        { name: t("nav.experience"), href: "#experiencia" },
+        { name: t("nav.skills"), href: "#habilidades" },
+        { name: t("nav.projects"), href: "#proyectos" },
+        { name: t("nav.certifications"), href: "#certificaciones" },
+        { name: t("nav.contact"), href: "#contacto" },
     ]
 
     return (

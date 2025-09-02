@@ -3,8 +3,10 @@
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import logo from "./../assets/LogoFernandoIbarra.png"
+import { useI18n } from "@/i18n"
 
 export function HeroSection() {
+    const { t } = useI18n()
     return (
         <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-card to-muted relative overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
@@ -29,27 +31,26 @@ export function HeroSection() {
                     </div>
 
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 text-balance animate-in slide-in-from-bottom-4 duration-1000">
-                        Fernando Ibarra
+                        {t("hero.name")}
                     </h1>
                     <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-semibold mb-8 animate-in slide-in-from-bottom-4 duration-1000 delay-200">
-                        Full Stack Developer
+                        {t("hero.role")}
                     </h2>
                     <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto text-pretty animate-in slide-in-from-bottom-4 duration-1000 delay-300">
-                        Desarrollador React con más de 4 años de experiencia creando aplicaciones web y móviles escalables y de alto
-                        rendimiento.
+                        {t("hero.description")}
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-in slide-in-from-bottom-4 duration-1000 delay-500">
                         <Button size="lg" className="gap-2 hover:scale-105 transition-transform">
                             <a href="#proyectos" className="flex items-center gap-2">
-                                Ver Proyectos
+                                {t("hero.ctaProjects")}
                                 <ArrowDown className="h-4 w-4 animate-bounce" />
                             </a>
                         </Button>
                         <Button variant="outline" size="lg" className="gap-2 bg-transparent hover:scale-105 transition-transform">
                             <a href="#contacto" className="flex items-center gap-2">
                                 <Mail className="h-4 w-4" />
-                                Contactar
+                                {t("hero.ctaContact")}
                             </a>
                         </Button>
                     </div>
@@ -59,13 +60,13 @@ export function HeroSection() {
                             onClick={() => (window.location.href = "https://www.github.com/feribarra1")}
                         >
                             <Github className="h-5 w-5" />
-                            GitHub
+                            {t("hero.socialGithub")}
                         </Button>
                         <Button variant="ghost" size="sm" className="gap-2 hover:scale-110 hover:text-primary transition-all cursor-pointer"
                             onClick={() => (window.location.href = "https://www.linkedin.com/in/feribarra1/")}
                         >
                             <Linkedin className="h-5 w-5" />
-                            LinkedIn
+                            {t("hero.socialLinkedin")}
                         </Button>
                         <Button
                             variant="ghost"
@@ -74,7 +75,7 @@ export function HeroSection() {
                             onClick={() => (window.location.href = "mailto:Fernandooibarra@gmail.com")}
                         >
                             <Mail className="h-5 w-5" />
-                            Email
+                            {t("hero.socialEmail")}
                         </Button>
                     </div>
                 </div>

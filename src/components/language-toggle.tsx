@@ -1,18 +1,14 @@
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Globe } from "lucide-react"
+import { useI18n } from "@/i18n"
 
 export function LanguageToggle() {
-    const [language, setLanguage] = useState<"es" | "en">("es")
-
-    const toggleLanguage = () => {
-        setLanguage((prev) => (prev === "es" ? "en" : "es"))
-    }
+    const { lang, toggle } = useI18n()
 
     return (
-        <Button variant="ghost" size="sm" onClick={toggleLanguage} className="gap-2">
+        <Button variant="ghost" size="sm" onClick={toggle} className="gap-2">
             <Globe className="h-4 w-4" />
-            {language === "es" ? "ES" : "EN"}
+            {lang === "es" ? "ES" : "EN"}
         </Button>
     )
 }

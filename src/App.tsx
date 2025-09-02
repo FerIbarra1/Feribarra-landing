@@ -5,8 +5,10 @@ import { SkillsSection } from "@/components/skills-section"
 import { CertificationsSection } from "@/components/certifications-section"
 import { ContactSection } from "@/components/contact-section"
 import { ProjectsSection } from "./components/projects-section"
+import { useI18n } from "@/i18n"
 
 export default function Home() {
+  const { t } = useI18n()
   return (
     <main className="min-h-screen">
       <Navigation />
@@ -37,9 +39,10 @@ export default function Home() {
 
       <footer className="bg-muted py-8">
         <div className="container px-4 mx-auto text-center">
-          <p className="text-muted-foreground">© 2025 Fernando Ibarra. Todos los derechos reservados.</p>
+          <p className="text-muted-foreground">{t("footer.copyright")}</p>
         </div>
       </footer>
     </main>
   )
 }
+
