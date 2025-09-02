@@ -91,7 +91,7 @@ export function CertificationsSection() {
                                             <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{cert.description}</p>
                                             <div className="flex flex-wrap gap-2">
                                                 {cert.technologies.map((tech, techIndex) => (
-                                                    <Badge key={techIndex} variant="secondary" className="text-xs">
+                                                    <Badge key={techIndex} variant="default" className="text-xs text-white">
                                                         {tech}
                                                     </Badge>
                                                 ))}

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, MapPin, Phone } from "lucide-react"
+import toast from "react-hot-toast"
 
 export function ContactSection() {
     return (
@@ -55,7 +56,7 @@ export function ContactSection() {
 
                     <Card>
                         <CardHeader>
-                            <CardTitle>Envíame un mensaje</CardTitle>
+                            <CardTitle className="font-bold text-xl">Envíame un mensaje</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <form className="space-y-4">
@@ -73,7 +74,12 @@ export function ContactSection() {
                                 <div>
                                     <Textarea placeholder="Mensaje" rows={5} className="resize-none" />
                                 </div>
-                                <Button className="w-full">Enviar Mensaje</Button>
+                                <Button className="w-full h-10 cursor-pointer"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        toast.success("Mensaje enviado correctamente!")
+                                    }}
+                                >Enviar Mensaje</Button>
                             </form>
                         </CardContent>
                     </Card>

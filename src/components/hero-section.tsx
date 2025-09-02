@@ -55,15 +55,24 @@ export function HeroSection() {
                     </div>
 
                     <div className="flex justify-center gap-6 animate-in slide-in-from-bottom-4 duration-1000 delay-700">
-                        <Button variant="ghost" size="sm" className="gap-2 hover:scale-110 hover:text-primary transition-all">
+                        <Button variant="ghost" size="sm" className="gap-2 hover:scale-110 hover:text-primary transition-all cursor-pointer"
+                            onClick={() => (window.location.href = "https://www.github.com/feribarra1")}
+                        >
                             <Github className="h-5 w-5" />
                             GitHub
                         </Button>
-                        <Button variant="ghost" size="sm" className="gap-2 hover:scale-110 hover:text-primary transition-all">
+                        <Button variant="ghost" size="sm" className="gap-2 hover:scale-110 hover:text-primary transition-all cursor-pointer"
+                            onClick={() => (window.location.href = "https://www.linkedin.com/in/feribarra1/")}
+                        >
                             <Linkedin className="h-5 w-5" />
                             LinkedIn
                         </Button>
-                        <Button variant="ghost" size="sm" className="gap-2 hover:scale-110 hover:text-primary transition-all">
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            className="gap-2 hover:scale-110 hover:text-primary transition-all cursor-pointer"
+                            onClick={() => (window.location.href = "mailto:Fernandooibarra@gmail.com")}
+                        >
                             <Mail className="h-5 w-5" />
                             Email
                         </Button>

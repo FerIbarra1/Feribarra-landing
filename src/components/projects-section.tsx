@@ -13,80 +13,80 @@ const projects = [
         id: 1,
         title: "Votométrica",
         description:
-            "Plataforma de comercio electrónico completa desarrollada con Next.js, TypeScript y Stripe. Incluye gestión de inventario, carrito de compras, procesamiento de pagos y panel de administración.",
+            "Plataforma inteligente para conteo de votos en tiempo real: digitaliza actas, valida con IA (OCR) y muestra resultados en mapas con actualizaciones periódicas, enfocada en rapidez, claridad y transparencia.", // Texto alineado al copy del sitio
         image: ProyectoVotometrica,
-        technologies: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL"],
+        technologies: ["Next JS", "React", "TypeScript", "TypeORM", "PostgreSQL", "Leaflet/Maps", "OCR/IA"],
         liveUrl: "https://www.votometrica.com",
         githubUrl: "#",
         colors: {
-            primary: "#3b82f6", // Blue
-            secondary: "#1e40af",
-            accent: "#60a5fa",
-            shadow: "59 130 246", // RGB values for shadow
+            primary: "#0a97b0",
+            secondary: "#0a97b080",
+            accent: "#0a97b0",
+            shadow: "14 165 233",
         },
     },
     {
         id: 2,
         title: "RealDeal JC",
         description:
-            "Aplicación de gestión de tareas con funcionalidades de colaboración en tiempo real. Desarrollada con React Native para móviles y Next.js para web, con sincronización en tiempo real.",
+            "E-commerce de coleccionables y juguetes con catálogo dinámico y experiencia de compra rápida. Marca con estética ‘mint’ sobre fondo oscuro para resaltar producto.",
         image: ProyectoRealDeal,
-        technologies: ["React Native", "Next.js", "Socket.io", "MongoDB", "Express"],
+        technologies: ["Next JS", "React", "TypeScript", "Stripe", "MongoDB", "Node JS"],
         liveUrl: "https://www.realdealjc.com",
         githubUrl: "#",
         colors: {
-            primary: "#10b981", // Emerald
-            secondary: "#047857",
-            accent: "#34d399",
-            shadow: "16 185 129",
+            primary: "#19b64f",
+            secondary: "#19b64f",
+            accent: "#19b64f",
+            shadow: "183 245 200",
         },
     },
     {
         id: 3,
         title: "WFacturas",
         description:
-            "Dashboard de análisis con inteligencia artificial para visualización de datos empresariales. Incluye gráficos interactivos, predicciones ML y reportes automatizados.",
+            "Sistema de facturación y timbrado CFDI con dashboard, autofactura y planes de timbres; orientado a eficiencia, seguridad y actualización continua con lineamientos del SAT.",
         image: ProyectoWFacturas,
-        technologies: ["React", "D3.js", "Python", "TensorFlow", "FastAPI"],
-        liveUrl: "https://www.wfacturas.com",
+        technologies: ["Next JS", "React", "TypeScript", "Node JS", "PostgreSQL", "CFDI", "Timbrado SAT"],
+        liveUrl: "https://wfacturas.com",
         githubUrl: "#",
         colors: {
-            primary: "#8b5cf6", // Violet
-            secondary: "#7c3aed",
-            accent: "#a78bfa",
-            shadow: "139 92 246",
+            primary: "#4ca647",
+            secondary: "#4ca647",
+            accent: "#4ca647",
+            shadow: "22 163 74",
         },
     },
     {
         id: 4,
         title: "VR VideoRemixes",
         description:
-            "Red social completa con sistema de posts, comentarios, likes y chat en tiempo real. Arquitectura escalable con microservicios y CDN para optimización de imágenes.",
+            "Plataforma por suscripción para explorar y descargar packs de videoremixes (tendencias, géneros y colecciones), con cuenta/migración y secciones de soporte y planes.",
         image: ProyectoVR,
-        technologies: ["Vue.js", "Node.js", "Redis", "AWS S3", "Docker"],
-        liveUrl: "https://www.videoremixespacks.com",
+        technologies: ["Next JS", "React", "TypeScript", "Nest JS", "Redis", "AWS S3", "Prisma"],
+        liveUrl: "https://videoremixespacks.com",
         githubUrl: "#",
         colors: {
-            primary: "#f59e0b", // Amber
-            secondary: "#d97706",
-            accent: "#fbbf24",
-            shadow: "245 158 11",
+            primary: "#ec0932",
+            secondary: "#ec0932",
+            accent: "#ec0932",
+            shadow: "6 182 212",
         },
     },
     {
         id: 5,
         title: "Entrify",
         description:
-            "Red social completa con sistema de posts, comentarios, likes y chat en tiempo real. Arquitectura escalable con microservicios y CDN para optimización de imágenes.",
+            "Gestión de acceso físico con QR dinámicos y verificación de identidad; control en tiempo real para residencial y corporativo, con demo y servicios (lector QR, diseño de punto de acceso).",
         image: ProyectoEntrify,
-        technologies: ["Vue.js", "Node.js", "Redis", "AWS S3", "Docker"],
+        technologies: ["Next JS", "React", "TypeScript", "SASS"],
         liveUrl: "https://www.entrify.mx",
         githubUrl: "#",
         colors: {
-            primary: "#f59e0b", // Amber
-            secondary: "#d97706",
-            accent: "#fbbf24",
-            shadow: "245 158 11",
+            primary: "#1b263b",
+            secondary: "#1b263b",
+            accent: "#1b263b",
+            shadow: "14 165 233",
         },
     },
 ]
@@ -120,26 +120,20 @@ export function ProjectsSection() {
                     <div className="relative">
                         {/* Project Card */}
                         <Card
-                            className="overflow-hidden border-2 transition-all duration-700 animate-in slide-in-from-right-5 backdrop-blur-sm px-4"
-                            style={{
-                                borderColor: project.colors.primary,
-                                boxShadow: `0 0 0 1px ${project.colors.primary}20, 0 25px 50px -12px rgba(${project.colors.shadow}, 0.4), 0 0 60px rgba(${project.colors.shadow}, 0.15)`,
-                                background: `linear-gradient(135deg, rgba(${project.colors.shadow}, 0.03) 0%, rgba(${project.colors.shadow}, 0.08) 100%)`,
-                            }}
+                            className="overflow-hidden border-2 transition-all duration-700 animate-in slide-in-from-right-5 backdrop-blur-sm px-4 "
+                        // style={{
+                        //     borderColor: project.colors.primary,
+                        //     boxShadow: `0 0 0 1px ${project.colors.primary}20, 0 25px 50px -12px rgba(${project.colors.shadow}, 0.4), 0 0 60px rgba(${project.colors.shadow}, 0.15)`,
+                        //     background: `linear-gradient(135deg, rgba(${project.colors.shadow}, 0.03) 0%, rgba(${project.colors.shadow}, 0.08) 100%)`,
+                        // }}
                         >
                             <div className="grid md:grid-cols-2 gap-0">
                                 {/* Project Image */}
-                                <div className="relative h-64 md:h-full bg-muted overflow-hidden">
+                                <div className="relative h-64 md:h-full bg-muted overflow-hidden rounded-xl">
                                     <img
                                         src={project.image || "/placeholder.svg"}
                                         alt={project.title}
-                                        className="object-cover transition-all duration-700 hover:scale-110 rounded-xl"
-                                    />
-                                    <div
-                                        className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-xl"
-                                        style={{
-                                            background: `linear-gradient(135deg, rgba(${project.colors.shadow}, 0.2) 0%, rgba(${project.colors.shadow}, 0.4) 100%)`,
-                                        }}
+                                        className="object-cover transition-all duration-700 hover:scale-110 rounded-xl h-full"
                                     />
                                     <div
                                         className="absolute top-4 left-4 w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm animate-pulse shadow-lg"
@@ -158,7 +152,7 @@ export function ProjectsSection() {
                                     <div className="space-y-6">
                                         <div className="animate-fade-in-up">
                                             <h3
-                                                className="text-2xl font-bold mb-3 text-balance transition-colors duration-300 hover:drop-shadow-lg"
+                                                className="text-2xl font-bold mb-3 text-balance transition-colors duration-300 hover:drop-shadow-lg text-foreground"
                                                 style={
                                                     {
                                                         "--hover-color": project.colors.primary,
@@ -178,15 +172,15 @@ export function ProjectsSection() {
 
                                         {/* Technologies */}
                                         <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-                                            <h4 className="font-semibold mb-3">Tecnologías utilizadas:</h4>
+                                            <h4 className="font-semibold mb-3 text-foreground">Tecnologías utilizadas:</h4>
                                             <div className="flex flex-wrap gap-2">
                                                 {project.technologies.map((tech, index) => (
                                                     <span
                                                         key={tech}
-                                                        className="px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 cursor-default animate-in slide-in-from-bottom-2 hover:scale-105 hover:shadow-lg"
+                                                        className="px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 cursor-default animate-in slide-in-from-bottom-2 hover:scale-105 hover:shadow-lg text-white"
                                                         style={{
-                                                            backgroundColor: `rgba(${project.colors.shadow}, 0.1)`,
-                                                            color: project.colors.primary,
+                                                            backgroundColor: project.colors.primary,
+                                                            // color: project.colors.primary,
                                                             border: `1px solid rgba(${project.colors.shadow}, 0.2)`,
                                                             animationDelay: `${index * 0.1}s`,
                                                         }}
@@ -263,25 +257,10 @@ export function ProjectsSection() {
                         {/* Navigation Buttons */}
                         <div className="flex justify-between items-center mt-8">
                             <Button
-                                variant="outline"
+                                variant="default"
                                 size="lg"
                                 onClick={prevProject}
-                                className="transition-all duration-300 hover:scale-105 bg-transparent shadow-lg hover:shadow-xl"
-                                style={{
-                                    borderColor: project.colors.primary,
-                                    color: project.colors.primary,
-                                    boxShadow: `0 2px 8px rgba(${project.colors.shadow}, 0.2)`,
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.backgroundColor = project.colors.primary
-                                    e.currentTarget.style.color = "white"
-                                    e.currentTarget.style.boxShadow = `0 8px 25px rgba(${project.colors.shadow}, 0.4)`
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.backgroundColor = "transparent"
-                                    e.currentTarget.style.color = project.colors.primary
-                                    e.currentTarget.style.boxShadow = `0 2px 8px rgba(${project.colors.shadow}, 0.2)`
-                                }}
+                                className="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl bg-primary"
                             >
                                 <ChevronLeft className="w-5 h-5 mr-2" />
                                 Anterior
@@ -319,25 +298,10 @@ export function ProjectsSection() {
                             </div>
 
                             <Button
-                                variant="outline"
+                                variant="default"
                                 size="lg"
                                 onClick={nextProject}
-                                className="transition-all duration-300 hover:scale-105 bg-transparent shadow-lg hover:shadow-xl"
-                                style={{
-                                    borderColor: project.colors.primary,
-                                    color: project.colors.primary,
-                                    boxShadow: `0 2px 8px rgba(${project.colors.shadow}, 0.2)`,
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.backgroundColor = project.colors.primary
-                                    e.currentTarget.style.color = "white"
-                                    e.currentTarget.style.boxShadow = `0 8px 25px rgba(${project.colors.shadow}, 0.4)`
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.backgroundColor = "transparent"
-                                    e.currentTarget.style.color = project.colors.primary
-                                    e.currentTarget.style.boxShadow = `0 2px 8px rgba(${project.colors.shadow}, 0.2)`
-                                }}
+                                className="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl bg-primary"
                             >
                                 Siguiente
                                 <ChevronRight className="w-5 h-5 ml-2" />

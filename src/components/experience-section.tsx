@@ -72,7 +72,7 @@ export function ExperienceSection() {
                                 </ul>
                                 <div className="flex flex-wrap gap-2">
                                     {exp.technologies.map((tech, techIndex) => (
-                                        <Badge key={techIndex} variant="outline" className="text-xs">
+                                        <Badge key={techIndex} variant="default" className="text-xs text-white">
                                             {tech}
                                         </Badge>
                                     ))}

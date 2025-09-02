@@ -50,12 +50,12 @@ export function SkillsSection() {
                     {skillCategories.map((category, index) => (
                         <Card key={index} className="hover:shadow-lg transition-shadow">
                             <CardHeader>
-                                <CardTitle className="text-primary font-bold text-2xl">{category.title}</CardTitle>
+                                <CardTitle className="text-foreground font-bold text-2xl">{category.title}</CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div className="flex flex-wrap gap-2">
                                     {category.skills.map((skill, skillIndex) => (
-                                        <Badge key={skillIndex} variant="secondary" className="text-xs">
+                                        <Badge key={skillIndex} variant="default" className="text-xs text-white">
                                             {skill}
                                         </Badge>
                                     ))}
