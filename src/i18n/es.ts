@@ -27,6 +27,9 @@ export const es = {
     tech: "Tecnologías",
     prev: "Anterior",
     next: "Siguiente",
+    title2: "Proyecto Destacado",
+    subtitle2:
+      "Mi trabajo más reciente y representativo",
   },
   experienceSection: {
     title: "Experiencia Profesional",
@@ -37,13 +40,15 @@ export const es = {
     subtitle:
       "Tecnologías y herramientas con las que trabajo para crear soluciones innovadoras",
     categories: [
-      { title: "Frontend", skills: [
-        "React.js","React Native","Next.js","TypeScript","JavaScript","Tailwind CSS","Shadcn/UI","Bootstrap","CSS","SASS"
-      ]},
-      { title: "Backend", skills: ["Node.js","Nest.js","Express.js"] },
-      { title: "Bases de Datos", skills: ["PostgreSQL","MongoDB","TypeORM","Prisma"] },
-      { title: "DevOps & Herramientas", skills: ["Docker","Git","GitHub","WebSockets","NPM"] },
-      { title: "Otros", skills: ["OpenAI API","Firebase","Zustand","TanStack Query","React Router"] },
+      {
+        title: "Frontend", skills: [
+          "React.js", "React Native", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Shadcn/UI", "Bootstrap", "CSS", "SASS"
+        ]
+      },
+      { title: "Backend", skills: ["Node.js", "Nest.js", "Express.js"] },
+      { title: "Bases de Datos", skills: ["PostgreSQL", "MongoDB", "TypeORM", "Prisma"] },
+      { title: "DevOps & Herramientas", skills: ["Docker", "Git", "GitHub", "WebSockets", "NPM"] },
+      { title: "Otros", skills: ["OpenAI API", "Firebase", "Zustand", "TanStack Query", "React Router"] },
     ],
   },
   certificationsSection: {
@@ -125,15 +130,15 @@ export const es = {
     locationLabel: "Ubicación",
     locationValue: "Hermosillo, Sonora, México",
     formTitle: "Envíame un mensaje",
+    formSubtitle: "Trabajemos juntos en tu próximo proyecto",
     namePlaceholder: "Nombre",
     emailPlaceholder: "Email",
     subjectPlaceholder: "Asunto",
     messagePlaceholder: "Mensaje",
     sendButton: "Enviar Mensaje",
+    footerTitle: "¿Listo para comenzar tu próximo proyecto?",
+    footerSubtitle: "Conversemos sobre cómo puedo ayudarte a hacer realidad tus ideas",
     toastSuccess: "¡Mensaje enviado correctamente!",
-  },
-  footer: {
-    copyright: "© 2025 Fernando Ibarra. Todos los derechos reservados.",
   },
   experiences: [
     {

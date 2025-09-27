@@ -1,5 +1,4 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { CalendarDays, MapPin } from "lucide-react"
 import { useI18n } from "@/i18n"
 
@@ -9,8 +8,9 @@ export function ExperienceSection() {
         <section className="py-20">
             <div className="container px-4 mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t("experienceSection.title")}</h2>
-                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
+                        {t("experienceSection.title")}</h2>
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
                         {t("experienceSection.subtitle")}
                     </p>
                 </div>
@@ -47,9 +47,9 @@ export function ExperienceSection() {
                                 </ul>
                                 <div className="flex flex-wrap gap-2">
                                     {exp.technologies.map((tech: string, techIndex: number) => (
-                                        <Badge key={techIndex} variant="default" className="text-xs text-white">
+                                        <span key={techIndex} className="px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
                                             {tech}
-                                        </Badge>
+                                        </span>
                                     ))}
                                 </div>
                             </CardContent>

@@ -27,6 +27,9 @@ export const en = {
     tech: "Tech",
     prev: "Previous",
     next: "Next",
+    title2: "Featured Project",
+    subtitle2:
+      "My most recent and representative work",
   },
   experienceSection: {
     title: "Professional Experience",
@@ -37,13 +40,15 @@ export const en = {
     subtitle:
       "Technologies and tools I use to build innovative solutions",
     categories: [
-      { title: "Frontend", skills: [
-        "React.js","React Native","Next.js","TypeScript","JavaScript","Tailwind CSS","Shadcn/UI","Bootstrap","CSS","SASS"
-      ]},
-      { title: "Backend", skills: ["Node.js","Nest.js","Express.js"] },
-      { title: "Databases", skills: ["PostgreSQL","MongoDB","TypeORM","Prisma"] },
-      { title: "DevOps & Tools", skills: ["Docker","Git","GitHub","WebSockets","NPM"] },
-      { title: "Other", skills: ["OpenAI API","Firebase","Zustand","TanStack Query","React Router"] },
+      {
+        title: "Frontend", skills: [
+          "React.js", "React Native", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Shadcn/UI", "Bootstrap", "CSS", "SASS"
+        ]
+      },
+      { title: "Backend", skills: ["Node.js", "Nest.js", "Express.js"] },
+      { title: "Databases", skills: ["PostgreSQL", "MongoDB", "TypeORM", "Prisma"] },
+      { title: "DevOps & Tools", skills: ["Docker", "Git", "GitHub", "WebSockets", "NPM"] },
+      { title: "Other", skills: ["OpenAI API", "Firebase", "Zustand", "TanStack Query", "React Router"] },
     ],
   },
   certificationsSection: {
@@ -125,15 +130,15 @@ export const en = {
     locationLabel: "Location",
     locationValue: "Hermosillo, Sonora, Mexico",
     formTitle: "Send me a message",
+    formSubtitle: "Let's work together on your next project",
     namePlaceholder: "Name",
     emailPlaceholder: "Email",
     subjectPlaceholder: "Subject",
     messagePlaceholder: "Message",
     sendButton: "Send Message",
+    footerTitle: "Ready to start your next project?",
+    footerSubtitle: "Let's talk about how I can help you make your ideas a reality.",
     toastSuccess: "Message sent successfully!",
-  },
-  footer: {
-    copyright: "© 2025 Fernando Ibarra. All rights reserved.",
   },
   experiences: [
     {
