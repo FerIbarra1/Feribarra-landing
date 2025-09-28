@@ -1,13 +1,75 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, MessageCircle, Phone, Send, Sparkles } from "lucide-react"
-import toast from "react-hot-toast"
-import { useI18n } from "@/i18n"
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, MapPin, MessageCircle, Phone, Send, Sparkles } from "lucide-react";
+import toast from "react-hot-toast";
+import { useI18n } from "@/i18n";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const contactSchema = z.object({
+    name: z.string().min(2, "Tu nombre es muy corto"),
+    email: z.string().email("Correo inválido"),
+    subject: z.string().max(200, "Máximo 200 caracteres").optional().or(z.literal("")),
+    company: z.string().optional(),
+    message: z.string().min(10, "Cuéntame un poco más (mín. 10 caracteres)"),
+});
+
+type ContactFormValues = z.infer<typeof contactSchema>;
 
 export function ContactSection() {
-    const { t } = useI18n()
+    const { t } = useI18n();
+    const [loading, setLoading] = useState(false);
+
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm<ContactFormValues>({
+        resolver: zodResolver(contactSchema),
+        defaultValues: { name: "", email: "", subject: "", message: "", company: "" },
+        mode: "onBlur",
+    });
+
+    const onSubmit = async (values: ContactFormValues) => {
+        // if (values.company) {
+        //     toast.success(t("contactSection.toastSuccess"));
+        //     reset();
+        //     return;
+        // }
+
+        try {
+            setLoading(true);
+
+            await emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                {
+                    name: values.name,
+                    email: values.email,
+                    subject: values.subject || "Nuevo mensaje desde el sitio",
+                    company: values.company || "N/A",
+                    message: values.message,
+                    reply_to: values.email,
+                },
+                { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
+            );
+
+            toast.success(t("contactSection.toastSuccess"));
+            reset();
+        } catch (err) {
+            toast.error(t("contactSection.toastError") || "No se pudo enviar el mensaje");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <section className="py-20 bg-background relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-accent/10">
@@ -37,6 +99,7 @@ export function ContactSection() {
 
                 <div className="max-w-6xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        {/* Tarjetas de contacto */}
                         <div className="space-y-6">
                             <div className="group">
                                 <Card className="overflow-hidden border-0 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
@@ -87,6 +150,7 @@ export function ContactSection() {
                             </div>
                         </div>
 
+                        {/* Formulario */}
                         <div className="lg:col-span-2">
                             <Card className="overflow-hidden border-0 bg-card/50 backdrop-blur-sm">
                                 <CardContent className="p-8">
@@ -95,14 +159,19 @@ export function ContactSection() {
                                         <p className="text-muted-foreground">{t("contactSection.formSubtitle")}</p>
                                     </div>
 
-                                    <form className="space-y-6">
+                                    <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+                                        {/* Honeypot invisible */}
+                                        <input type="text" autoComplete="off" tabIndex={-1} className="hidden" {...register("company")} />
+
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                             <div className="space-y-2">
                                                 <label className="text-sm font-medium text-foreground">{t("contactSection.namePlaceholder")}</label>
                                                 <Input
                                                     placeholder={t("contactSection.namePlaceholder")}
                                                     className="bg-background/50 border-border focus:border-primary/50 focus:ring-primary/20 mt-2"
+                                                    {...register("name")}
                                                 />
+                                                {errors.name && <p className="text-sm text-red-500">{errors.name.message}</p>}
                                             </div>
                                             <div className="space-y-2">
                                                 <label className="text-sm font-medium text-foreground">{t("contactSection.emailPlaceholder")}</label>
@@ -110,7 +179,9 @@ export function ContactSection() {
                                                     type="email"
                                                     placeholder={t("contactSection.emailPlaceholder")}
                                                     className="bg-background/50 border-border focus:border-primary/50 focus:ring-primary/20 mt-2"
+                                                    {...register("email")}
                                                 />
+                                                {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
                                             </div>
                                         </div>
 
@@ -119,7 +190,19 @@ export function ContactSection() {
                                             <Input
                                                 placeholder={t("contactSection.subjectPlaceholder")}
                                                 className="bg-background/50 border-border focus:border-primary/50 focus:ring-primary/20 mt-2"
+                                                {...register("subject")}
                                             />
+                                            {errors.subject && <p className="text-sm text-red-500">{errors.subject.message}</p>}
+                                        </div>
+
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-foreground">{t("contactSection.companyPlaceholder")}</label>
+                                            <Input
+                                                placeholder={t("contactSection.companyPlaceholder")}
+                                                className="bg-background/50 border-border focus:border-primary/50 focus:ring-primary/20 mt-2"
+                                                {...register("company")}
+                                            />
+                                            {errors.company && <p className="text-sm text-red-500">{errors.company.message}</p>}
                                         </div>
 
                                         <div className="space-y-2">
@@ -128,19 +211,19 @@ export function ContactSection() {
                                                 placeholder={t("contactSection.messagePlaceholder")}
                                                 rows={5}
                                                 className="bg-background/50 border-border focus:border-primary/50 focus:ring-primary/20 mt-2 resize-none h-32"
+                                                {...register("message")}
                                             />
+                                            {errors.message && <p className="text-sm text-red-500">{errors.message.message}</p>}
                                         </div>
 
                                         <div className="flex gap-4 pt-4">
                                             <Button
                                                 className="flex-1 cursor-pointer py-6 group text-white text-base font-bold bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-accent transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-primary/25"
-                                                onClick={(e) => {
-                                                    e.preventDefault()
-                                                    toast.success(t("contactSection.toastSuccess"))
-                                                }}
+                                                type="submit"
+                                                disabled={loading}
                                             >
                                                 <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                                                {t("contactSection.sendButton")}
+                                                {loading ? t("contactSection.sending") : t("contactSection.sendButton")}
                                             </Button>
                                         </div>
                                     </form>
@@ -149,6 +232,7 @@ export function ContactSection() {
                         </div>
                     </div>
 
+                    {/* Footer */}
                     <div className="text-center mt-16">
                         <div className="max-w-2xl mx-auto">
                             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -157,28 +241,10 @@ export function ContactSection() {
                             <p className="text-muted-foreground mb-8 text-lg">
                                 {t("contactSection.footerSubtitle")}
                             </p>
-                            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                                <Button
-                                    size="lg"
-                                    className="group bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-accent transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-primary/25 px-8 py-4"
-                                >
-                                    Comenzar Proyecto
-                                    <ArrowUpRight className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                </Button>
-                                <span className="text-muted-foreground">o</span>
-                                <Button
-                                    variant="outline"
-                                    size="lg"
-                                    className="group gradient-border hover:bg-primary/5 transition-all duration-300 px-8 py-4 bg-transparent"
-                                >
-                                    Ver Mi Trabajo
-                                </Button>
-                            </div> */}
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    )
+    );
 }
-

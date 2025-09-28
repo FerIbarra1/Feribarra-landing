@@ -217,11 +217,14 @@ export const en = {
     namePlaceholder: "Name",
     emailPlaceholder: "Email",
     subjectPlaceholder: "Subject",
+    companyPlaceholder: "Company",
     messagePlaceholder: "Message",
     sendButton: "Send Message",
     footerTitle: "Ready to start your next project?",
     footerSubtitle: "Let's talk about how I can help you make your ideas a reality.",
     toastSuccess: "Message sent successfully!",
+    toastError: "Failed to send message. Please try again later.",
+    sending: "Sending...",
   },
   experiences: [
     {

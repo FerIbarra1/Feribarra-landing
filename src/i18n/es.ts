@@ -217,11 +217,14 @@ export const es = {
     namePlaceholder: "Nombre",
     emailPlaceholder: "Email",
     subjectPlaceholder: "Asunto",
+    companyPlaceholder: "Empresa",
     messagePlaceholder: "Mensaje",
     sendButton: "Enviar Mensaje",
     footerTitle: "¿Listo para comenzar tu próximo proyecto?",
     footerSubtitle: "Conversemos sobre cómo puedo ayudarte a hacer realidad tus ideas",
     toastSuccess: "¡Mensaje enviado correctamente!",
+    toastError: "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.",
+    sending: "Enviando...",
   },
   experiences: [
     {
