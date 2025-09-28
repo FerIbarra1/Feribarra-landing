@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Code2, Github, Linkedin, Mail, Sparkles } from "lucide-react"
-import logo from "./../assets/FILogo.png"
 import { useI18n } from "@/i18n"
 import { useEffect, useState } from "react"
 
@@ -67,7 +66,7 @@ export function HeroSection() {
                                 {/* <img src={logo} alt="Logo" className="w-72 h-72 animate-fade-scale" /> */}
                                 {/* <div className="w-48 h-48 bg-background/90 rounded-full flex items-center justify-center backdrop-blur-sm">
                                 </div> */}
-                                    <span className="text-9xl font-bold">🚀</span>
+                                <span className="text-9xl font-bold">🚀</span>
                             </div>
                         </div>
                     </div>
