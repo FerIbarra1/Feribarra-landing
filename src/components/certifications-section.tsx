@@ -27,13 +27,11 @@ export function CertificationsSection() {
                                 {provider.certifications.map((cert: any, certIndex: number) => (
                                     <Card
                                         key={certIndex}
-                                        className="hover:shadow-lg transition-all duration-300 group border-0 bg-card/50 backdrop-blur-sm hover:bg-card/80 hover:-translate-y-1"
+                                        className="hover:shadow-lg transition-all duration-300 group border-0 bg-card/50 backdrop-blur-sm hover:bg-card/80 hover:-translate-y-1 pt-0"
                                     >
-                                        <div className="relative h-32 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center border-b">
-                                            <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center">
-                                                {/* <ImageIcon className="w-8 h-8 text-primary" /> */}
-                                            </div>
+                                        <div className="relative h-auto w-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center border-b rounded-t-xl">
                                             {/* Certificate image would go here */}
+                                            <img src={cert.image} className="w-full h-auto rounded-t-xl" alt={cert.name} />
                                             <div className="absolute top-2 right-2">
                                                 <Badge variant="secondary" className="text-xs text-white">
                                                     {provider.provider}
@@ -62,12 +60,12 @@ export function CertificationsSection() {
                                                 <Button
                                                     variant="default"
                                                     size="sm"
-                                                    className="w-full group-hover:bg-primary group-hover:border-primary transition-all duration-300 bg-primary py-5 text-white font-bold"
+                                                    className="w-full group-hover:bg-primary group-hover:border-primary transition-all duration-300 bg-primary py-5 font-bold"
                                                     asChild
                                                 >
-                                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                                    <a href={cert.url} target="_blank" rel="noopener noreferrer">
                                                         <ExternalLink className="w-4 h-4 mr-2" />
-                                                        Ver Certificado
+                                                        {t("certificationsSection.button")}
                                                     </a>
                                                 </Button>
                                             </div>

@@ -96,7 +96,7 @@ export function ProjectsSection() {
                                             <Button
                                                 asChild
                                                 size="sm"
-                                                className="w-full py-5 text-white group-hover:bg-primary group-hover:border-primary transition-all duration-300 bg-primary"
+                                                className="w-full py-5 group-hover:bg-primary group-hover:border-primary transition-all duration-300 bg-primary"
                                             >
                                                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                                                     <ExternalLink className="w-4 h-4 mr-2" />
