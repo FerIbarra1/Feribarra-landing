@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Code2, Github, Linkedin, Mail, Sparkles } from "lucide-react"
-// import logo from "./../assets/LogoFernandoIbarra.png"
+import logo from "./../assets/FILogo.png"
 import { useI18n } from "@/i18n"
 import { useEffect, useState } from "react"
 
@@ -60,13 +60,14 @@ export function HeroSection() {
 
             <div className="container px-4 mx-auto text-center relative z-10">
                 <div className="max-w-5xl mx-auto">
-                    <div className="mb-12 flex justify-center">
+                    <div className=" flex justify-center">
                         <div className="relative animate-fade-scale">
                             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-2xl scale-150"></div>
-                            <div className="relative w-72 h-72 bg-gradient-to-br from-primary via-secondary to-accent rounded-full flex items-center justify-center animate-float drop-shadow-2xl">
-                                <div className="w-48 h-48 bg-background/90 rounded-full flex items-center justify-center backdrop-blur-sm">
-                                    <span className="text-6xl font-bold gradient-text">FI</span>
-                                </div>
+                            <div className="relative w-50 h-50 bg-gradient-to-br from-primary via-secondary to-accent rounded-full flex items-center justify-center animate-float drop-shadow-2xl">
+                                {/* <img src={logo} alt="Logo" className="w-72 h-72 animate-fade-scale" /> */}
+                                {/* <div className="w-48 h-48 bg-background/90 rounded-full flex items-center justify-center backdrop-blur-sm">
+                                </div> */}
+                                    <span className="text-9xl font-bold">🚀</span>
                             </div>
                         </div>
                     </div>
