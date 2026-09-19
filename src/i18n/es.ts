@@ -47,21 +47,21 @@ export const es = {
     title: "Stack Técnico",
     subtitle:
       "Tecnologías y herramientas, con el contexto donde las usé.",
-    usedInLabel: "Usado en",
+    usedInLabel: "",
     integrationsLabel: "Integraciones",
     integrations: [
       "Sistemas de pago", "Sistemas legacy", "APIs de terceros", "Keycloak", "OpenAI API", "Firebase"
     ],
     categories: [
       {
-        title: "Frontend", usedIn: "Trabajo de cliente · Proyectos propios", skills: [
+        title: "Frontend", skills: [
           "React", "React Native", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "shadcn/ui", "Zustand", "TanStack Query", "React Router", "React Hook Form", "Zod"
         ]
       },
-      { title: "Backend", usedIn: "Plataforma de seguros · Trabajo de cliente", skills: ["Node.js", "NestJS", "Express.js", "REST APIs", "Microservices", "WebSockets"] },
-      { title: "Arquitectura y Mensajería", usedIn: "Plataforma de seguros", skills: ["Clean Architecture", "Hexagonal (Ports & Adapters)", "DDD", "RabbitMQ", "Redis", "BullMQ", "Comunicación asíncrona"] },
-      { title: "Bases de Datos", usedIn: "Plataforma de seguros · Trabajo de cliente", skills: ["SQL Server", "PostgreSQL", "MongoDB", "Prisma", "TypeORM"] },
-      { title: "DevOps & Herramientas", usedIn: "Plataforma de seguros", skills: ["Docker", "Git", "GitLab CI", "ArgoCD", "Kubernetes", "NPM", "PNPM", "Sentry"] },
+      { title: "Backend", skills: ["Node.js", "NestJS", "Express.js", "REST APIs", "Microservices", "WebSockets"] },
+      { title: "Arquitectura y Mensajería", skills: ["Clean Architecture", "Hexagonal (Ports & Adapters)", "DDD", "RabbitMQ", "Redis", "BullMQ", "Comunicación asíncrona"] },
+      { title: "Bases de Datos", skills: ["SQL Server", "PostgreSQL", "MongoDB", "Prisma", "TypeORM"] },
+      { title: "DevOps & Herramientas", skills: ["Docker", "Git", "GitLab CI", "ArgoCD", "Kubernetes", "NPM", "PNPM", "Sentry"] },
     ],
   },
   certificationsSection: {
@@ -235,7 +235,6 @@ export const es = {
     phoneLabel: "Teléfono",
     locationLabel: "Ubicación",
     locationValue: "Hermosillo, Sonora, México",
-    formTitle: "Envíame un mensaje",
     formSubtitle: "Trabajemos juntos en tu próximo proyecto",
     namePlaceholder: "Nombre",
     emailPlaceholder: "Email",
@@ -277,7 +276,7 @@ export const es = {
   },
   educationSection: {
     title: "Formación",
-    degree: "Licenciatura en Desarrollo de Software",
+    degree: "Ingeniería en Sistemas Computacionales",
     institution: "Tecnológico Nacional de México, Campus Hermosillo",
     period: "Ago 2017 – Dic 2024",
     location: "Hermosillo, Sonora, México",
@@ -306,7 +305,6 @@ export const es = {
     tagline: "Senior Backend / Full Stack Developer — sistemas distribuidos, microservicios y motores de pago.",
     rights: "Todos los derechos reservados.",
     backToTop: "Volver arriba",
-    builtWith: "Hecho con React 19 · Vite 7 · Tailwind 4",
   },
   experiences: [
     {

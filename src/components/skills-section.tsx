@@ -30,15 +30,6 @@ export function SkillsSection() {
                                 </span>
                             </div>
 
-                            {category.usedIn && (
-                                <p className="text-mono-sm text-muted-foreground/80 mb-3">
-                                    <span className="text-eyebrow uppercase mr-1.5 tracking-wide">
-                                        {t("skillsSection.usedInLabel")}
-                                    </span>
-                                    {category.usedIn}
-                                </p>
-                            )}
-
                             <ul className="divide-y divide-border">
                                 {category.skills.map((skill) => (
                                     <li
