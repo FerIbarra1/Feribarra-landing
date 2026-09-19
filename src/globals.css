@@ -229,28 +229,33 @@
   max-width: 11ch;
 }
 
-/* Section entrances. The hook only sets the attribute; CSS owns the timing, so
-   the curve and duration live in one place. `data-inview` is set on first paint
-   under reduced motion, so nothing ever animates there. */
-@utility reveal {
-  opacity: 0;
-  transform: translateY(0.75rem);
-  transition:
-    opacity 720ms var(--ease-entrance),
-    transform 720ms var(--ease-entrance);
-  transition-delay: var(--reveal-delay, 0ms);
-}
-.reveal[data-inview="true"] {
-  opacity: 1;
-  transform: none;
-}
+/* ---------------------------------------------------------------------------
+   MOTION SYSTEM
+   Three flavours of entrance, one for every micro-state on the page:
 
-/* Hero words: opacity reaches 1 in the first 30% so it reads as *rising* into
-   place rather than fading in. */
+   1. rise-in — single block (eyebrow, role, CTA). Pure opacity + 1.0em
+      translateY, ease-out-quiet, duration tied to character count so short
+      tokens never feel sluggish.
+   2. word-rise — text where the *words themselves* rise in sequence.
+      A clip-path mask uncovers each word; a translateY lifts it; opacity
+      completes in the first 30% so words feel like they're *landing*, not
+      fading. Used on the hero h1 and section headings.
+   3. reveal — full-section entrance. The hook only sets the attribute; CSS
+      owns the timing, the curve and the delay. `data-inview` is set on first
+      paint under reduced motion so nothing ever animates there.
+   4. draw-x — left-to-right scale on a hairline. Uses translateZ(0) to keep
+      it on the compositor.
+   5. draw-y — bottom-to-top scale, for vertical rules on experience timeline.
+   6. tick-up — number counter tabular-nums ticking toward target.
+   ------------------------------------------------------------------------ */
+
+/* Single block rising into place. No clip, no mask — just a translateY and
+   an opacity that completes early so the element reads as "settled" the
+   moment the eye lands on it. */
 @keyframes rise-in {
   0% {
     opacity: 0;
-    transform: translateY(0.4em);
+    transform: translate3d(0, 0.4em, 0);
   }
   30% {
     opacity: 1;
@@ -265,18 +270,155 @@
   animation-delay: var(--rise-delay, 0ms);
 }
 
-/* The eyebrow rule draws itself left-to-right. */
+/* Word-by-word rise. The parent sets --word-base; children read --word-i and
+   stagger off it. Each word is its own inline-block so clip-path isolates it.
+   translateZ(0) promotes to a layer so the transform doesn't repaint text. */
+@keyframes word-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0.55em, 0);
+    clip-path: inset(0 0 100% 0);
+  }
+  35% {
+    opacity: 1;
+  }
+  55% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0 0 0 0);
+  }
+}
+@utility word-rise {
+  --word-i: 0;
+  --word-step: 55ms;
+  display: inline-block;
+  opacity: 0;
+  animation: word-rise 1100ms var(--ease-out-quiet) both;
+  animation-delay: calc(var(--word-base, 0ms) + var(--word-i) * var(--word-step));
+  will-change: transform, clip-path;
+}
+
+/* Hairline draws left → right. translateZ keeps it on the GPU so the rest of
+   the layout doesn't thrash on long rules. */
 @keyframes draw-x {
   from {
-    transform: scaleX(0);
+    transform: scale3d(0, 1, 1);
   }
   to {
-    transform: scaleX(1);
+    transform: scale3d(1, 1, 1);
   }
 }
 @utility draw-x {
-  transform-origin: left;
-  animation: draw-x 700ms var(--ease-out-quiet) both;
+  transform-origin: left center;
+  animation: draw-x 900ms var(--ease-out-quiet) both;
+  animation-delay: var(--draw-delay, 0ms);
+}
+
+/* Hairline draws bottom → top. */
+@keyframes draw-y {
+  from {
+    transform: scale3d(1, 0, 1);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@utility draw-y {
+  transform-origin: center bottom;
+  animation: draw-y 900ms var(--ease-out-quiet) both;
+  animation-delay: var(--draw-delay, 0ms);
+}
+
+/* Section entrances — opacity + translateY on the *whole* section. Used as the
+   outermost container; inner elements add their own rise-in / word-rise on top. */
+@utility reveal {
+  opacity: 0;
+  transform: translate3d(0, 0.75rem, 0);
+  transition:
+    opacity 800ms var(--ease-entrance),
+    transform 800ms var(--ease-entrance);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: transform, opacity;
+}
+.reveal[data-inview="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Section heading underline draws in *after* the heading text lands. */
+@keyframes underline-grow {
+  from {
+    transform: scale3d(0, 1, 1);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@utility underline-grow {
+  transform-origin: left center;
+  animation: underline-grow 700ms var(--ease-out-quiet) both;
+  animation-delay: var(--underline-delay, 120ms);
+}
+
+/* Number tick — a soft blur resolves into a sharp figure. JS owns the count,
+   this just keeps the digit calm during the tick. */
+@keyframes tick-up {
+  0% {
+    filter: blur(2px);
+    opacity: 0.7;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+@utility tick-up {
+  animation: tick-up 700ms var(--ease-out-quiet) both;
+  animation-delay: var(--tick-delay, 0ms);
+}
+
+/* A pulse used on the "available" status dot — quiet enough to live forever,
+   loud enough to feel alive. */
+@keyframes live-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+@utility live-pulse {
+  animation: live-pulse 2200ms var(--ease-inout-quiet) infinite;
+}
+
+/* The core of the dot stays solid; the halo is the ::after ring. */
+.live-dot {
+  position: relative;
+  display: inline-block;
+}
+.live-dot::before {
+  content: "";
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--signal-ink);
+}
+.live-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--signal-ink);
+  animation: live-pulse 2200ms var(--ease-inout-quiet) infinite;
 }
 
 @layer base {
