@@ -1,13 +1,12 @@
-import { useMemo } from "react"
 import ProyectoVotometrica from "@/assets/optimized/ProyectoVotometrica.jpg"
 import ProyectoRealDeal from "@/assets/optimized/ProyectoRealDeal.jpg"
 import ProyectoWFacturas from "@/assets/optimized/ProyectoWFacturas.jpg"
 import ProyectoVR from "@/assets/optimized/ProyectoVR.jpg"
 import ProyectoEntrify from "@/assets/optimized/ProyectoEntrify.jpg"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { ExternalLink } from "lucide-react"
-import { useI18n } from "@/i18n"
+import { useI18n } from "@/i18n/use-i18n"
+import { useInView } from "@/hooks/use-in-view"
 
 const images: Record<string, string> = {
     ProyectoVotometrica,
@@ -19,169 +18,73 @@ const images: Record<string, string> = {
 
 export function ProjectsSection() {
     const { dict, t } = useI18n()
-
-    const projects = useMemo(() =>
-        dict.projects.map((p) => ({ ...p, image: images[p.imageKey] })),
-        [dict.projects]
-    )
-
-    // const nextProject = () => setCurrentProject((prev) => (prev + 1) % projects.length)
-    // const prevProject = () => setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length)
-
-    // const project = projects[currentProject]
+    const projects = dict.projects.map((p) => ({ ...p, image: images[p.imageKey] }))
+    const { ref, inView } = useInView<HTMLDivElement>()
 
     return (
-        <div className="py-20 bg-background">
-            <div className="container px-4 mx-auto">
-                <div className="text-center mb-16 animate-on-scroll">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
-                        <span className="text-foreground">{t("projectsSection.title")}</span>
-                    </h2>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">{t("projectsSection.subtitle")}</p>
+        <section id="proyectos" className="py-32 md:py-44 lg:py-56 border-t border-border">
+            <div ref={ref} data-inview={inView} className="container-page reveal">
+                <div className="mb-16">
+                    <p className="text-eyebrow uppercase text-signal-ink mb-6">
+                        {t("projectsSection.title")}
+                    </p>
+                    <p className="text-lead text-foreground/85 max-w-[46rem] text-pretty">
+                        {t("projectsSection.subtitle")}
+                    </p>
                 </div>
 
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {projects.map((project, index) => (
-                            <Card
-                                key={index}
-                                className="group overflow-hidden border-0 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
-                            >
-                                {/* Project Image/Visual */}
-                                <div className="relative h-48 overflow-hidden">
-                                    {/* <div
-                                        className="absolute inset-0 bg-gradient-to-br opacity-90 group-hover:opacity-100 transition-opacity duration-500"
-                                        style={{
-                                            background: `linear-gradient(135deg, ${project.colors.primary} 0%, ${project.colors.secondary} 50%, ${project.colors.accent} 100%)`,
-                                        }}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {projects.map((project, i) => (
+                        <a
+                            key={i}
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block"
+                            aria-label={`${project.title} — ${t("projectsSection.viewProject")}`}
+                        >
+                            <Card className="group h-full overflow-hidden border border-border bg-card transition-all duration-300 hover:border-border-strong">
+                                <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        width={1400}
+                                        height={788}
+                                        loading="lazy"
+                                        decoding="async"
+                                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div className="text-center text-white">
-                                            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-3 mx-auto backdrop-blur-sm">
-                                                <span className="text-2xl font-bold">{project.title.charAt(0)}</span>
-                                            </div>
-                                            <h3 className="text-lg font-semibold">{project.title}</h3>
-                                        </div>
-                                    </div> */}
-                                    <img src={project.image} alt={project.title} width={1400} height={788} loading="lazy" decoding="async" className="w-full h-full object-cover object-center" />
-                                    {/* Hover overlay */}
-                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 </div>
 
                                 <CardContent className="p-6">
-                                    <div className="space-y-4">
-                                        <div>
-                                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                                                {project.title}
-                                            </h3>
-                                            <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                                                {project.description}
-                                            </p>
-                                        </div>
+                                    <h3 className="text-[1.25rem] font-semibold text-foreground mb-2 group-hover:text-signal-ink transition-colors">
+                                        {project.title}
+                                    </h3>
+                                    <p className="text-meta text-muted-foreground leading-relaxed line-clamp-3 mb-4">
+                                        {project.description}
+                                    </p>
 
-                                        {/* Technologies */}
-                                        <div>
-                                            <div className="flex flex-wrap gap-1.5">
-                                                {project.technologies.slice(0, 3).map((tech: string, techIndex: number) => (
-                                                    <span
-                                                        key={techIndex}
-                                                        className="text-xs p-2 text-primary border rounded-xl border-primary/50">
-                                                        {tech}
-                                                    </span>
-                                                ))}
-                                                {project.technologies.length > 3 && (
-                                                    <span className="text-xs p-2 text-primary border rounded-xl border-primary/50">
-                                                        +{project.technologies.length - 3}
-                                                    </span>
-                                                )}
-                                            </div>
-                                        </div>
-
-                                        {/* Action Button */}
-                                        <div className="pt-2">
-                                            <Button
-                                                asChild
-                                                size="sm"
-                                                className="w-full py-5 group-hover:bg-primary group-hover:border-primary transition-all duration-300 bg-primary"
+                                    <div className="flex flex-wrap gap-1.5 mb-4">
+                                        {project.technologies.slice(0, 4).map((tech) => (
+                                            <span
+                                                key={tech}
+                                                className="px-2 py-0.5 text-mono-sm border border-border rounded-md text-muted-foreground"
                                             >
-                                                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                                                    <ExternalLink className="w-4 h-4 mr-2" />
-                                                    {t("projectsSection.viewProject")}
-                                                </a>
-                                            </Button>
-                                        </div>
+                                                {tech}
+                                            </span>
+                                        ))}
                                     </div>
+
+                                    <span className="inline-flex items-center gap-1.5 text-mono-sm text-foreground/85 group-hover:text-signal-ink transition-colors">
+                                        {t("projectsSection.viewProject")}
+                                        <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                                    </span>
                                 </CardContent>
                             </Card>
-                        ))}
-                    </div>
-
-                    {/* Featured Project Highlight */}
-                    <div className="mt-16">
-                        <div className="text-center mb-8">
-                            <h3 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
-                                <span className="text-foreground">{t("projectsSection.title2")}</span>
-                            </h3>
-                            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">{t("projectsSection.subtitle2")}</p>
-                        </div>
-
-                        <Card className="overflow-hidden border-2 border-primary/20 bg-gradient-to-r from-background to-muted/30">
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                                {/* Featured Project Visual */}
-                                {/* <div className="relative h-64 lg:h-80">
-                                    <div
-                                        className="absolute inset-0 bg-gradient-to-br opacity-90"
-                                        style={{
-                                            background: `linear-gradient(135deg, ${projects[0].colors.primary} 0%, ${projects[0].colors.secondary} 50%, ${projects[0].colors.accent} 100%)`,
-                                        }}
-                                    />
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div className="text-center text-white">
-                                            <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm">
-                                                <span className="text-3xl font-bold">{projects[0].title.charAt(0)}</span>
-                                            </div>
-                                            <h4 className="text-xl font-semibold">{projects[0].title}</h4>
-                                        </div>
-                                    </div>
-                                </div> */}
-
-                                <img src={projects[0].image} alt={projects[0].title} width={1400} height={788} decoding="async" className="w-full h-64 lg:h-auto object-cover object-center" />
-
-                                {/* Featured Project Content */}
-                                <CardContent className="flex flex-col justify-center p-8 lg:p-12">
-                                    <div>
-                                        <h3 className="text-3xl font-bold text-foreground mb-4">{projects[0].title}</h3>
-                                        <p className="text-muted-foreground leading-relaxed mb-6 text-lg">{projects[0].description}</p>
-
-                                        <div className="mb-8">
-                                            <h4 className="text-sm font-semibold text-foreground/80 mb-3">{t("projectsSection.tech")}</h4>
-                                            <div className="flex flex-wrap gap-2">
-                                                {projects[0].technologies.map((tech: string, index: number) => (
-                                                    <span
-                                                        key={index}
-                                                        className="px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20"
-                                                    >
-                                                        {tech}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-
-                                        <div className="flex gap-4">
-                                            <Button asChild size="lg" className="flex-1 py-6 text-base font-semibold">
-                                                <a href={projects[0].liveUrl} target="_blank" rel="noopener noreferrer">
-                                                    <ExternalLink className="w-4 h-4 mr-2" />
-                                                    {t("projectsSection.viewProject")}
-                                                </a>
-                                            </Button>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </div>
-                        </Card>
-                    </div>
+                        </a>
+                    ))}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

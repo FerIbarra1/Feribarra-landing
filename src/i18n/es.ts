@@ -8,6 +8,9 @@ export const es = {
     certifications: "Certificaciones",
     education: "Formación",
     contact: "Contacto",
+    menuOpen: "Abrir menú",
+    menuClose: "Cerrar menú",
+    downloadCv: "Descargar CV",
   },
   hero: {
     name: "Fernando Ibarra",
@@ -65,6 +68,8 @@ export const es = {
     title: "Certificaciones",
     subtitle: "Formación continua y certificaciones que respaldan mi experiencia técnica",
     button: "Ver Certificado",
+    showAll: "Ver las 15 certificaciones de DevTalles",
+    showLess: "Mostrar menos",
     providers: [
       {
         provider: "Microsoft",
@@ -75,7 +80,7 @@ export const es = {
               "Aprende los fundamentos de la IA generativa (LLMs, prompts, riesgos y ética) y cómo aplicarla en el trabajo con herramientas como Microsoft Copilot para automatizar tareas y potenciar la creatividad.",
             technologies: ["Inteligencia Artificial", "IA Generativa"],
             url: "https://www.linkedin.com/learning/certificates/557f513e7ac29edaff10120c047fcaa20e14f49ad5cb22ada78fb992a133c298",
-            image: "https://i.imgur.com/KZfZAxN.jpeg",
+            image: "/certifications/KZfZAxN-1200.webp",
           },
           {
             name: "Microsoft and LinkedIn Systems Administration Career Essentials",
@@ -83,7 +88,7 @@ export const es = {
               "Panorama del rol de SysAdmin: administración de entornos on-premise y cloud, virtualización, almacenamiento, seguridad, herramientas clave y ruta de desarrollo profesional.",
             technologies: ["System Administration"],
             url: "https://www.linkedin.com/learning/certificates/6102dccfffdf2a7957f2b873e9b085e337a12fb2e79240241ce644d998838a5d",
-            image: "https://i.imgur.com/j6bKiCz.jpeg",
+            image: "/certifications/j6bKiCz-1200.webp",
           },
           {
             name: "Professional Fundamentals of Software Development, by Microsoft and LinkedIn",
@@ -91,7 +96,7 @@ export const es = {
               "Fundamentos de desarrollo de software: pensamiento computacional, estructuras de datos y control de flujo, principios de programación y buenas prácticas aplicadas a distintos lenguajes.",
             technologies: ["Software Development", "Programming"],
             url: "https://www.linkedin.com/learning/certificates/099ea9806183134afcfa1ba686fc97525ac1e387ae7838aee28dd6db7fa5d48a",
-            image: "https://i.imgur.com/Ey2UJyU.jpeg",
+            image: "/certifications/Ey2UJyU-1200.webp",
           },
         ],
       },
@@ -104,7 +109,7 @@ export const es = {
               "De cero a avanzado en JavaScript moderno: ES6+, asincronía, módulos, patrones y buenas prácticas para un nivel competitivo en el mercado.",
             technologies: ["JavaScript"],
             url: "https://cursos.devtalles.com/certificates/0ukjpjpu3m",
-            image: "https://i.imgur.com/G0ct8M7.jpeg",
+            image: "/certifications/G0ct8M7-1200.webp",
           },
           {
             name: "React: De cero a experto ( Hooks y MERN )",
@@ -112,7 +117,7 @@ export const es = {
               "React 100% con Hooks: estado, contexto, router, pruebas unitarias/integración, patrones avanzados y proyectos MERN orientados a producción.",
             technologies: ["React", "Hooks", "Context API", "React Router", "Testing Library/Jest", "MongoDB", "Express", "Node", "Firebase", "Bootstrap", "CSS"],
             url: "https://cursos.devtalles.com/certificates/1tufqctqtl",
-            image: "https://i.imgur.com/uOyBwvP.jpeg",
+            image: "/certifications/uOyBwvP-1200.webp",
           },
           {
             name: "React PRO: Lleva tus bases al siguiente nivel",
@@ -120,7 +125,7 @@ export const es = {
               "Perfecciona bases de React con patrones intermedios/avanzados, optimización de rendimiento, composición de componentes y mejores prácticas con Hooks.",
             technologies: ["PWA", "NPM", "Formik", "React"],
             url: "https://cursos.devtalles.com/certificates/6pal3nwfr8",
-            image: "https://i.imgur.com/WzpvI6C.jpeg",
+            image: "/certifications/WzpvI6C-1200.webp",
           },
           {
             name: "React: De cero a experto (edición actualizada)",
@@ -128,7 +133,7 @@ export const es = {
               "Actualización del curso de React: repaso de fundamentos y adopción de las prácticas vigentes del ecosistema, con Hooks, composición de componentes y patrones modernos de desarrollo.",
             technologies: ["React", "Hooks", "TypeScript"],
             url: "https://cursos.devtalles.com/certificates/grfoac6egq",
-            image: "https://i.imgur.com/nssarnF.jpeg",
+            image: "/certifications/nssarnF-1200.webp",
           },
           {
             name: "TypeScript: Tu completa guía y manual de mano.",
@@ -136,7 +141,7 @@ export const es = {
               "TypeScript de principio a fin: tipado estático, interfaces, genéricos, util types, configuración del compilador y uso con frameworks modernos.",
             technologies: ["Typescript"],
             url: "https://cursos.devtalles.com/certificates/hbll5frkg7",
-            image: "https://i.imgur.com/DgrWi3k.jpeg",
+            image: "/certifications/DgrWi3k-1200.webp",
           },
           {
             name: "OpenAI: Ejercicios prácticos y asistentes con React + NestJS",
@@ -144,7 +149,7 @@ export const es = {
               "Integración práctica de OpenAI: consumo desde Node/NestJS y frontend en React para chat/completions, generación/edición de imágenes, audio TTS/STT y asistentes.",
             technologies: ["Nest", "React", "OpenAI API"],
             url: "https://cursos.devtalles.com/certificates/hmg7rnngij",
-            image: "https://i.imgur.com/vbdUQvc.jpeg",
+            image: "/certifications/vbdUQvc-1200.webp",
           },
           {
             name: "TanStack Query - Un poderoso gestor de estado asíncrono.",
@@ -152,7 +157,7 @@ export const es = {
               "Uso profesional de TanStack Query para datos remotos: caché, invalidaciones, reintentos, sincronización en segundo plano, SSR y patrones de fetching en React.",
             technologies: ["TanStack Query", "React"],
             url: "https://cursos.devtalles.com/certificates/irg3nsjnzj",
-            image: "https://i.imgur.com/3OZvkWV.jpeg",
+            image: "/certifications/3OZvkWV-1200.webp",
           },
           {
             name: "React Router: Navegación declarativa y framework",
@@ -160,7 +165,7 @@ export const es = {
               "React Router como librería y como framework: rutas anidadas, loaders/acciones, protección de rutas, manejo de sesiones y despliegue con Docker.",
             technologies: ["React Router", "React"],
             url: "https://cursos.devtalles.com/certificates/etbadnszea",
-            image: "https://i.imgur.com/kHXedJz.jpeg",
+            image: "/certifications/kHXedJz-1200.webp",
           },
           {
             name: "Zustand: Gestor de estado para React",
@@ -168,7 +173,7 @@ export const es = {
               "Gestor de estado ligero para React: stores tipados, middlewares, persistencia, slices y patrones para reemplazar Redux/Context en casos comunes.",
             technologies: ["Zustand", "React"],
             url: "https://cursos.devtalles.com/certificates/igzbv9zjly",
-            image: "https://i.imgur.com/dF9hMUJ.jpeg",
+            image: "/certifications/dF9hMUJ-1200.webp",
           },
           {
             name: "Next.js: El framework de React para producción",
@@ -176,7 +181,7 @@ export const es = {
               "Next.js de forma integral: enrutamiento, data-fetching, SSR/SSG, optimización, TypeScript y ejercicios orientados a apps listas para producción.",
             technologies: ["Next.js", "React"],
             url: "https://cursos.devtalles.com/certificates/f5vsw3jrvt",
-            image: "https://i.imgur.com/xKye8go.jpeg",
+            image: "/certifications/xKye8go-1200.webp",
           },
           {
             name: "GIT+GitHub: Todo un sistema de control de versiones de cero",
@@ -184,7 +189,7 @@ export const es = {
               "Control de versiones profesional con Git y GitHub: flujo de trabajo, ramas, PRs, issues, wikis, tokens y colaboración en equipos.",
             technologies: ["Git", "GitHub"],
             url: "https://cursos.devtalles.com/certificates/60yhalceu6",
-            image: "https://i.imgur.com/1TU18ZR.jpeg",
+            image: "/certifications/1TU18ZR-1200.webp",
           },
           {
             name: "Shadcn/ui: Componentes accesibles y personalizables",
@@ -192,7 +197,7 @@ export const es = {
               "Implementación de shadcn/ui en proyectos Next.js: instalación, anatomía de componentes y construcción de un dashboard con Tailwind.",
             technologies: ["Tailwind", "Shadcn/UI"],
             url: "https://cursos.devtalles.com/certificates/ymsslzknzy",
-            image: "https://i.imgur.com/eYqQVQG.jpeg",
+            image: "/certifications/eYqQVQG-1200.webp",
           },
           {
             name: "Node.Js: De cero a experto",
@@ -200,7 +205,7 @@ export const es = {
               "Node.js práctico: CLI/HTTP/Express, pruebas, despliegues y Docker; desde fundamentos hasta patrones y casos de uso modernos.",
             technologies: ["Node", "Express", "WebSockets", "MongoDB", "PostgreSQL"],
             url: "https://cursos.devtalles.com/certificates/epjl1mza9y",
-            image: "https://i.imgur.com/94HoX2o.jpeg",
+            image: "/certifications/94HoX2o-1200.webp",
           },
           {
             name: "Nest: Desarrollo backend escalable con Node",
@@ -208,7 +213,7 @@ export const es = {
               "NestJS de cero a producción: módulos, inyección de dependencias, guards/interceptors, websockets, Docker y despliegue de backends.",
             technologies: ["Nest", "TypeORM", "WebSockets", "Typescript", "PostgreSQL", "Docker"],
             url: "https://cursos.devtalles.com/certificates/bcdvt6t2hd",
-            image: "https://i.imgur.com/ylYZO0S.jpeg",
+            image: "/certifications/ylYZO0S-1200.webp",
           },
           {
             name: "NestJs + Reportes: Genera PDFs desde Node",
@@ -216,7 +221,7 @@ export const es = {
               "Generación de reportes PDF con NestJS: PdfMake, Chart.js, tablas, QR, estilos reutilizables, HTML→PDF y conexión a BD (Prisma/PostgreSQL).",
             technologies: ["Nest", "PostgreSQL"],
             url: "https://cursos.devtalles.com/certificates/a6dki5q26m",
-            image: "https://i.imgur.com/OadreRP.jpeg",
+            image: "/certifications/OadreRP-1200.webp",
           },
         ],
       },
@@ -290,6 +295,12 @@ export const es = {
     downloadEs: "Descargar CV (ES)",
     downloadEn: "Download CV (EN)",
     meta: "PDF · 2 páginas",
+  },
+  theme: {
+    toggle: "Cambiar tema",
+    light: "Claro",
+    dark: "Oscuro",
+    system: "Sistema",
   },
   footer: {
     tagline: "Senior Backend / Full Stack Developer — sistemas distribuidos, microservicios y motores de pago.",

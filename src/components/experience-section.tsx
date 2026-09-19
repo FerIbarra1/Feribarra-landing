@@ -1,63 +1,99 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CalendarDays, MapPin } from "lucide-react"
-import { useI18n } from "@/i18n"
+import { useI18n } from "@/i18n/use-i18n"
+import { useInView } from "@/hooks/use-in-view"
 
 export function ExperienceSection() {
     const { t, dict } = useI18n()
+    const experiences = dict.experiences
+    const currentIdx = 0
+    const { ref, inView } = useInView<HTMLDivElement>()
+
     return (
-        <section className="py-20">
-            <div className="container px-4 mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
-                        {t("experienceSection.title")}</h2>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
+        <section id="experiencia" className="py-32 md:py-44 lg:py-56">
+            <div ref={ref} data-inview={inView} className="container-page reveal">
+                <div className="mb-16">
+                    <p className="text-eyebrow uppercase text-signal-ink mb-6">
+                        {t("experienceSection.title")}
+                    </p>
+                    <p className="text-lead text-foreground/85 max-w-[46rem] text-pretty">
                         {t("experienceSection.subtitle")}
                     </p>
                 </div>
 
-                <div className="max-w-4xl mx-auto space-y-8">
-                    {dict.experiences.map((exp, index) => (
-                        <Card key={index} className="hover:shadow-lg transition-shadow">
-                            <CardHeader>
-                                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                                    <div>
-                                        <CardTitle className="text-xl text-primary">{exp.position}</CardTitle>
-                                        <h3 className="text-lg font-semibold text-foreground">{exp.company}</h3>
-                                    </div>
-                                    <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-                                        <div className="flex items-center gap-2">
-                                            <CalendarDays className="h-4 w-4" />
-                                            {exp.period}
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <MapPin className="h-4 w-4" />
-                                            {exp.location}
-                                        </div>
-                                    </div>
-                                </div>
-                            </CardHeader>
-                            <CardContent>
-                                <ul className="space-y-2 mb-4">
-                                    {exp.description.map((item: string, itemIndex: number) => (
-                                        <li key={itemIndex} className="text-muted-foreground flex items-start gap-2">
-                                            <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <div className="flex flex-wrap gap-2">
-                                    {exp.technologies.map((tech: string, techIndex: number) => (
-                                        <span key={techIndex} className="px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div>
-                            </CardContent>
-                        </Card>
-                    ))}
+                <div className="relative max-w-[60rem]">
+                    <div className="absolute left-[7.5rem] md:left-[10rem] top-0 bottom-0 w-px bg-border hidden md:block" aria-hidden="true" />
+
+                    <ul className="space-y-12">
+                        {experiences.map((exp, i) => {
+                            const isCurrent = i === currentIdx
+                            return (
+                                <li key={i} className="relative md:pl-32">
+                                    <div
+                                        className={`absolute left-[7.5rem] md:left-[10rem] top-3 -translate-x-1/2 w-3 h-3 rounded-full hidden md:block ${
+                                            isCurrent
+                                                ? "bg-signal-ink ring-4 ring-signal-ink/20"
+                                                : "bg-border-strong"
+                                        }`}
+                                        aria-hidden="true"
+                                    />
+
+                                    <Card
+                                        className={`group transition-all duration-300 ${
+                                            isCurrent
+                                                ? "border-signal-ink/30 shadow-sm"
+                                                : "border-border opacity-90"
+                                        } bg-card`}
+                                    >
+                                        <CardHeader>
+                                            <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
+                                                <div>
+                                                    <CardTitle className="text-display-3 text-foreground">
+                                                        {exp.position}
+                                                    </CardTitle>
+                                                    <p className="text-body text-signal-ink mt-1">
+                                                        {exp.company}
+                                                    </p>
+                                                </div>
+                                                <div className="text-mono-sm text-muted-foreground tabular shrink-0">
+                                                    {exp.period}
+                                                </div>
+                                            </div>
+                                            <p className="text-mono-sm text-muted-foreground/80 mt-1">
+                                                {exp.location}
+                                            </p>
+                                        </CardHeader>
+
+                                        <CardContent>
+                                            <ul className="space-y-2 mb-6">
+                                                {exp.description.map((d, idx) => (
+                                                    <li
+                                                        key={idx}
+                                                        className="text-body text-foreground/85 leading-relaxed flex items-start gap-3"
+                                                    >
+                                                        <span className="mt-2.5 w-1 h-1 rounded-full bg-signal-ink shrink-0" aria-hidden="true" />
+                                                        <span>{d}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+
+                                            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-border">
+                                                {exp.technologies.map((t) => (
+                                                    <span
+                                                        key={t}
+                                                        className="px-2.5 py-1 text-mono-sm border border-border rounded-md text-muted-foreground"
+                                                    >
+                                                        {t}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </li>
+                            )
+                        })}
+                    </ul>
                 </div>
             </div>
         </section>
     )
 }
-

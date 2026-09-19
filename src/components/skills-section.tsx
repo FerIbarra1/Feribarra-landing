@@ -1,98 +1,75 @@
-"use client"
-
-import { useI18n } from "@/i18n"
-import { useState } from "react"
+import { useI18n } from "@/i18n/use-i18n"
+import { useInView } from "@/hooks/use-in-view"
 
 export function SkillsSection() {
     const { t, dict } = useI18n()
     const categories = dict.skillsSection.categories
-    const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
+    const { ref, inView } = useInView<HTMLDivElement>()
 
     return (
-        <section className="py-20 bg-muted/30">
-            <div className="container px-4 mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
+        <section id="habilidades" className="py-32 md:py-44 lg:py-56 border-t border-border">
+            <div ref={ref} data-inview={inView} className="container-page reveal">
+                <div className="mb-16">
+                    <p className="text-eyebrow uppercase text-signal-ink mb-6">
                         {t("skillsSection.title")}
-                    </h2>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
+                    </p>
+                    <p className="text-lead text-foreground/85 max-w-[46rem] text-pretty">
                         {t("skillsSection.subtitle")}
                     </p>
                 </div>
 
-                <div className="max-w-8xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
-                        {categories.map((category, cIdx) => (
-                            <div key={cIdx} className="space-y-6">
-                                <div className="space-y-2">
-                                    <h3 className="text-xl font-semibold text-foreground tracking-tight">
-                                        {category.title}
-                                    </h3>
-                                    <div className="w-12 h-0.5 bg-primary" />
-                                </div>
-
-                                <div className="space-y-3">
-                                    {category.skills.map((skill: string, sIdx: number) => (
-                                        <div
-                                            key={sIdx}
-                                            className="group cursor-pointer"
-                                            onMouseEnter={() => setHoveredSkill(`${cIdx}-${sIdx}`)}
-                                            onMouseLeave={() => setHoveredSkill(null)}
-                                        >
-                                            <div className="flex items-center justify-between py-2 px-3 rounded-lg transition-all duration-200 hover:bg-muted/50">
-                                                <span className="text-foreground font-medium group-hover:text-primary transition-colors">
-                                                    {skill}
-                                                </span>
-                                                <div className="flex items-center space-x-2">
-                                                    <div className="flex space-x-1">
-                                                        {[...Array(5)].map((_, i) => (
-                                                            <div
-                                                                key={i}
-                                                                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${hoveredSkill === `${cIdx}-${sIdx}`
-                                                                    ? i < 4
-                                                                        ? "bg-primary"
-                                                                        : "bg-muted"
-                                                                    : "bg-muted"
-                                                                    }`}
-                                                            />
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* {additional.length > 0 && (
-                        <div className="mt-16 pt-16 border-t border-border">
-                            <div className="text-center mb-8">
-                                <h3 className="text-xl font-semibold text-foreground mb-2">
-                                    {t("lang") === "es" ? "Tecnologías Adicionales" : "Additional Technologies"}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {categories.map((category, cIdx) => (
+                        <div key={cIdx} className="space-y-1">
+                            <div className="flex items-baseline justify-between border-b border-border-strong pb-3 mb-2">
+                                <h3 className="text-display-3 text-foreground text-[1.125rem] font-semibold tabular">
+                                    {String(cIdx + 1).padStart(2, "0")}
                                 </h3>
-                                <p className="text-muted-foreground">
-                                    {t("lang") === "es"
-                                        ? "Otras herramientas y tecnologías que utilizo"
-                                        : "Other tools and technologies I use"}
-                                </p>
+                                <span className="text-meta text-muted-foreground uppercase tracking-wide">
+                                    {category.title}
+                                </span>
                             </div>
 
-                            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-                                {additional.map((skill: string, index: number) => (
-                                    <Badge
-                                        key={index}
-                                        variant="outline"
-                                        className="px-4 py-2 text-sm hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer"
+                            {category.usedIn && (
+                                <p className="text-mono-sm text-muted-foreground/80 mb-3">
+                                    <span className="text-eyebrow uppercase mr-1.5 tracking-wide">
+                                        {t("skillsSection.usedInLabel")}
+                                    </span>
+                                    {category.usedIn}
+                                </p>
+                            )}
+
+                            <ul className="divide-y divide-border">
+                                {category.skills.map((skill) => (
+                                    <li
+                                        key={skill}
+                                        className="py-2 px-1 text-body text-muted-foreground"
                                     >
                                         {skill}
-                                    </Badge>
+                                    </li>
                                 ))}
-                            </div>
+                            </ul>
                         </div>
-                    )} */}
+                    ))}
                 </div>
+
+                {dict.skillsSection.integrations && (
+                    <div className="mt-16 pt-12 border-t border-border">
+                        <p className="text-eyebrow uppercase text-muted-foreground mb-4">
+                            {t("skillsSection.integrationsLabel")}
+                        </p>
+                        <ul className="flex flex-wrap gap-2">
+                            {dict.skillsSection.integrations.map((s) => (
+                                <li
+                                    key={s}
+                                    className="px-3 py-1.5 text-mono-sm border border-border rounded-full"
+                                >
+                                    {s}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
             </div>
         </section>
     )

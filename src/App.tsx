@@ -1,40 +1,33 @@
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
+import { MetricsSection } from "@/components/metrics-section"
 import { ExperienceSection } from "@/components/experience-section"
 import { SkillsSection } from "@/components/skills-section"
-import { CertificationsSection } from "@/components/certifications-section"
-import { ContactSection } from "@/components/contact-section"
+import { EnterpriseCaseSection } from "@/components/enterprise-case-section"
 import { ProjectsSection } from "./components/projects-section"
+import { CertificationsSection } from "@/components/certifications-section"
+import { EducationSection } from "@/components/education-section"
+import { CvBandSection } from "@/components/cv-band-section"
+import { ContactSection } from "@/components/contact-section"
+import { FooterSection } from "@/components/footer-section"
 
 export default function Home() {
-  return (
-    <main className="min-h-screen">
-      <Navigation />
-
-      <section id="inicio" className="py-20">
-        <HeroSection />
-      </section>
-
-      <section id="experiencia" className="py-20">
-        <ExperienceSection />
-      </section>
-
-      <section id="habilidades" className="py-20">
-        <SkillsSection />
-      </section>
-
-      <section id="proyectos" className="py-20">
-        <ProjectsSection />
-      </section>
-
-      <section id="certificaciones" className="py-20">
-        <CertificationsSection />
-      </section>
-
-      <section id="contacto" className="pt-20">
-        <ContactSection />
-      </section>
-    </main>
-  )
+    return (
+        <>
+            <Navigation />
+            <main>
+                <HeroSection />
+                <MetricsSection />
+                <ExperienceSection />
+                <SkillsSection />
+                <EnterpriseCaseSection />
+                <ProjectsSection />
+                <CertificationsSection />
+                <EducationSection />
+                <CvBandSection />
+                <ContactSection />
+            </main>
+            <FooterSection />
+        </>
+    )
 }
-

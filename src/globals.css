@@ -229,6 +229,56 @@
   max-width: 11ch;
 }
 
+/* Section entrances. The hook only sets the attribute; CSS owns the timing, so
+   the curve and duration live in one place. `data-inview` is set on first paint
+   under reduced motion, so nothing ever animates there. */
+@utility reveal {
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition:
+    opacity 720ms var(--ease-entrance),
+    transform 720ms var(--ease-entrance);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal[data-inview="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero words: opacity reaches 1 in the first 30% so it reads as *rising* into
+   place rather than fading in. */
+@keyframes rise-in {
+  0% {
+    opacity: 0;
+    transform: translateY(0.4em);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@utility rise-in {
+  animation: rise-in 900ms var(--ease-out-quiet) both;
+  animation-delay: var(--rise-delay, 0ms);
+}
+
+/* The eyebrow rule draws itself left-to-right. */
+@keyframes draw-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@utility draw-x {
+  transform-origin: left;
+  animation: draw-x 700ms var(--ease-out-quiet) both;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
