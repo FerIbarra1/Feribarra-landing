@@ -22,7 +22,7 @@ export function SkillsSection() {
 
                 <div className="max-w-8xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
-                        {categories.map((category: any, cIdx: number) => (
+                        {categories.map((category, cIdx) => (
                             <div key={cIdx} className="space-y-6">
                                 <div className="space-y-2">
                                     <h3 className="text-xl font-semibold text-foreground tracking-tight">

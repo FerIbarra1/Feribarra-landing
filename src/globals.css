@@ -3,82 +3,106 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ============================================================================
+   QUIET LUXURY — "Ink & Hairline"
+   Ink-first, accent-as-signal. One accent, one type scale, one spacing rhythm.
+   Tailwind v4 has no config file: tokens, easings and utilities live here.
+   ========================================================================= */
+
 :root {
-  --background: oklch(0.98 0.005 240);
-  --foreground: oklch(0.15 0.02 240);
-  --card: oklch(0.99 0.003 240);
-  --card-foreground: oklch(0.15 0.02 240);
-  --popover: oklch(0.99 0.003 240);
-  --popover-foreground: oklch(0.15 0.02 240);
-  --primary: oklch(0.45 0.15 200);
-  --primary-foreground: oklch(0.98 0.005 240);
-  --secondary: oklch(0.55 0.12 180);
-  --secondary-foreground: oklch(0.98 0.005 240);
-  --muted: oklch(0.95 0.01 240);
-  --muted-foreground: oklch(0.55 0.02 240);
-  --accent: oklch(0.65 0.18 180);
-  --accent-foreground: oklch(0.98 0.005 240);
+  /* Surfaces — near-white, a hair cool. Not pure #fff: pure white kills hairlines. */
+  --background: oklch(0.992 0.002 250);
+  --foreground: oklch(0.205 0.008 250);
+  --card: oklch(0.975 0.0025 250);
+  --card-foreground: oklch(0.205 0.008 250);
+  --popover: oklch(0.995 0.0015 250);
+  --popover-foreground: oklch(0.205 0.008 250);
+
+  /* Primary = INK. Buttons are black pills, not teal pills. */
+  --primary: oklch(0.205 0.008 250);
+  --primary-foreground: oklch(0.992 0.002 250);
+
+  /* Secondary = NEUTRAL. Structurally eliminates the old 2.88:1 failure. */
+  --secondary: oklch(0.955 0.003 250);
+  --secondary-foreground: oklch(0.205 0.008 250);
+
+  --muted: oklch(0.965 0.0025 250);
+  --muted-foreground: oklch(0.455 0.010 250); /* 7.11:1 on --background (AAA) */
+
+  /* --accent stays NEUTRAL: it is the hover surface of ghost/outline/dropdown.
+     If it were teal, every ghost-button hover would become a colour fill. */
+  --accent: oklch(0.955 0.003 250);
+  --accent-foreground: oklch(0.205 0.008 250);
+
+  /* THE SIGNAL — the only hue. Budget: max 6 categories (see plan §4.4). */
+  --signal: oklch(0.44 0.09 200); /* 7.11:1 on --background (AAA) */
+  --signal-ink: oklch(0.44 0.09 200);
+  --signal-fill: oklch(0.44 0.09 200);
+  --signal-ink-on-fill: oklch(0.992 0.002 250);
+  --signal-quiet: oklch(0.44 0.09 200 / 0.12);
+
+  /* States — ONLY inside diagrams and status chips. */
+  --state-queue: oklch(0.62 0.12 75);
+  --state-ok: oklch(0.56 0.11 150);
+  --state-identity: oklch(0.52 0.13 300);
+
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.98 0.005 240);
-  --border: oklch(0.9 0.01 240);
-  --input: oklch(0.95 0.01 240);
-  --ring: oklch(0.45 0.15 200);
-  --chart-1: oklch(0.45 0.15 200);
-  --chart-2: oklch(0.55 0.12 180);
-  --chart-3: oklch(0.65 0.18 180);
-  --chart-4: oklch(0.35 0.12 220);
-  --chart-5: oklch(0.75 0.15 160);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.98 0.005 240);
-  --sidebar-foreground: oklch(0.15 0.02 240);
-  --sidebar-primary: oklch(0.45 0.15 200);
-  --sidebar-primary-foreground: oklch(0.98 0.005 240);
-  --sidebar-accent: oklch(0.95 0.01 240);
-  --sidebar-accent-foreground: oklch(0.15 0.02 240);
-  --sidebar-border: oklch(0.9 0.01 240);
-  --sidebar-ring: oklch(0.45 0.15 200);
+  --destructive-foreground: oklch(0.992 0.002 250);
+
+  --border: oklch(0.9 0.006 250);
+  --border-strong: oklch(0.78 0.006 250); /* ~2:1 — for section-defining rules */
+  --input: oklch(0.9 0.006 250);
+  --ring: oklch(0.44 0.09 200);
+
+  --radius: 0.625rem;
 }
 
 .dark {
-  /* Dark mode with deep navy background and bright cyan accents */
-  --background: oklch(0.08 0.02 240);
-  --foreground: oklch(0.95 0.01 180);
-  --card: oklch(0.12 0.02 240);
-  --card-foreground: oklch(0.95 0.01 180);
-  --popover: oklch(0.12 0.02 240);
-  --popover-foreground: oklch(0.95 0.01 180);
-  --primary: oklch(0.75 0.18 180);
-  --primary-foreground: oklch(0.08 0.02 240);
-  --secondary: oklch(0.65 0.15 200);
-  --secondary-foreground: oklch(0.08 0.02 240);
-  --muted: oklch(0.18 0.02 240);
-  --muted-foreground: oklch(0.65 0.02 200);
-  --accent: oklch(0.85 0.2 180);
-  --accent-foreground: oklch(0.08 0.02 240);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.95 0.01 180);
-  --border: oklch(0.25 0.02 240);
-  --input: oklch(0.18 0.02 240);
-  --ring: oklch(0.75 0.18 180);
-  --chart-1: oklch(0.75 0.18 180);
-  --chart-2: oklch(0.65 0.15 200);
-  --chart-3: oklch(0.85 0.2 180);
-  --chart-4: oklch(0.55 0.12 220);
-  --chart-5: oklch(0.95 0.15 160);
-  --sidebar: oklch(0.12 0.02 240);
-  --sidebar-foreground: oklch(0.95 0.01 180);
-  --sidebar-primary: oklch(0.75 0.18 180);
-  --sidebar-primary-foreground: oklch(0.08 0.02 240);
-  --sidebar-accent: oklch(0.18 0.02 240);
-  --sidebar-accent-foreground: oklch(0.95 0.01 180);
-  --sidebar-border: oklch(0.25 0.02 240);
-  --sidebar-ring: oklch(0.75 0.18 180);
+  /* Near-black with an imperceptible cool cast. Not pure black: pure black
+     makes hairlines invisible and OLED screens look broken. */
+  --background: oklch(0.17 0.006 250);
+  --foreground: oklch(0.96 0.003 250);
+  --card: oklch(0.205 0.0055 250);
+  --card-foreground: oklch(0.96 0.003 250);
+  --popover: oklch(0.205 0.0055 250);
+  --popover-foreground: oklch(0.96 0.003 250);
+
+  /* Inverted: white pill on black. */
+  --primary: oklch(0.96 0.003 250);
+  --primary-foreground: oklch(0.17 0.006 250);
+
+  --secondary: oklch(0.27 0.006 250);
+  --secondary-foreground: oklch(0.96 0.003 250);
+
+  --muted: oklch(0.235 0.0055 250);
+  --muted-foreground: oklch(0.69 0.008 250); /* 6.90:1 on --background */
+
+  --accent: oklch(0.27 0.006 250);
+  --accent-foreground: oklch(0.96 0.003 250);
+
+  --signal: oklch(0.76 0.10 195); /* 9.28:1 on --background (AAA) */
+  --signal-ink: oklch(0.76 0.10 195);
+  --signal-fill: oklch(0.76 0.10 195);
+  --signal-ink-on-fill: oklch(0.17 0.006 250);
+  --signal-quiet: oklch(0.76 0.10 195 / 0.16);
+
+  --state-queue: oklch(0.78 0.11 75);
+  --state-ok: oklch(0.74 0.10 150);
+  --state-identity: oklch(0.72 0.11 300);
+
+  --destructive: oklch(0.63 0.19 27.325);
+  --destructive-foreground: oklch(0.17 0.006 250);
+
+  --border: oklch(0.27 0.006 250);
+  --border-strong: oklch(0.38 0.006 250);
+  --input: oklch(0.27 0.006 250);
+  --ring: oklch(0.76 0.10 195);
 }
 
 @theme inline {
-  /* Modern tech fonts - Inter for UI and JetBrains Mono for code */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", "Roboto Mono", monospace;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -96,25 +120,113 @@
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+
+  /* The signal + states, exposed as utilities. */
+  --color-signal: var(--signal);
+  --color-signal-ink: var(--signal-ink);
+  --color-signal-fill: var(--signal-fill);
+  --color-signal-ink-on-fill: var(--signal-ink-on-fill);
+  --color-signal-quiet: var(--signal-quiet);
+  --color-state-queue: var(--state-queue);
+  --color-state-ok: var(--state-ok);
+  --color-state-identity: var(--state-identity);
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-xl: 0.875rem;
+
+  /* ---- TYPE SCALE -------------------------------------------------------
+     Tailwind v4 reads --text-* and generates text-*; the --line-height,
+     --letter-spacing and --font-weight sub-keys ride along automatically. */
+
+  /* DISPLAY — enormous, tight, weight 500-600. Never 700+. */
+  --text-display-1: clamp(3.25rem, 9vw, 7.5rem);
+  --text-display-1--line-height: 0.94;
+  --text-display-1--letter-spacing: -0.045em;
+  --text-display-1--font-weight: 600;
+
+  --text-display-2: clamp(2.25rem, 5vw, 4.25rem);
+  --text-display-2--line-height: 1;
+  --text-display-2--letter-spacing: -0.038em;
+  --text-display-2--font-weight: 600;
+
+  --text-display-3: clamp(1.5rem, 2.6vw, 2.125rem);
+  --text-display-3--line-height: 1.12;
+  --text-display-3--letter-spacing: -0.028em;
+  --text-display-3--font-weight: 600;
+
+  /* READING */
+  --text-lead: clamp(1.125rem, 1.5vw, 1.375rem);
+  --text-lead--line-height: 1.55;
+  --text-lead--letter-spacing: -0.011em;
+  --text-lead--font-weight: 400;
+
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.65;
+  --text-body--letter-spacing: -0.006em;
+
+  --text-small: 0.9375rem;
+  --text-small--line-height: 1.6;
+
+  --text-meta: 0.8125rem;
+  --text-meta--line-height: 1.5;
+
+  /* TECHNICAL — mono, POSITIVE tracking (the opposite of the old blanket -0.025em) */
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.16em;
+  --text-eyebrow--font-weight: 500;
+
+  --text-metric: clamp(2.75rem, 6.5vw, 5.5rem);
+  --text-metric--line-height: 0.9;
+  --text-metric--letter-spacing: -0.04em;
+  --text-metric--font-weight: 500;
+
+  --text-mono-sm: 0.75rem;
+  --text-mono-sm--line-height: 1.45;
+  --text-mono-sm--letter-spacing: 0.02em;
+
+  --text-diagram-label: 0.6875rem; /* 11px — absolute floor for diagram labels */
+  --text-diagram-label--line-height: 1.2;
+  --text-diagram-label--letter-spacing: 0.06em;
+  --text-diagram-label--font-weight: 500;
+
+  /* MOTION */
+  --ease-out-quiet: cubic-bezier(0.16, 1, 0.3, 1); /* expo-out — the signature */
+  --ease-entrance: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-inout-quiet: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1); /* exits are faster and near-linear */
+}
+
+/* The container, defined once. Tailwind v4's `container` no longer centers
+   or pads (verified in the emitted CSS), so every section repeated
+   `container px-4 mx-auto`. This replaces all six copies. */
+@utility container-page {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  @media (width >= 48rem) {
+    padding-inline: 2.5rem;
+  }
+  @media (width >= 80rem) {
+    padding-inline: 3rem;
+  }
+}
+
+/* Measure (line length). */
+@utility measure-text {
+  max-width: 38rem;
+}
+@utility measure-lead {
+  max-width: 46ch;
+}
+@utility measure-display {
+  max-width: 11ch;
 }
 
 @layer base {
@@ -125,119 +237,49 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  /* Custom animations for modern tech feel */
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-      transform: translateY(-10px) rotate(2deg);
-    }
+  /* The token scale now owns all typography. The old blanket
+     `h1-h6 { font-weight: 700; letter-spacing: -0.025em }` is gone — it
+     flattened the hierarchy and made 12px labels illegible. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
   }
 
-  @keyframes glow {
-    0%,
-    100% {
-      box-shadow: 0 0 20px rgba(117, 190, 218, 0.3);
-    }
-    50% {
-      box-shadow: 0 0 40px rgba(117, 190, 218, 0.6), 0 0 60px rgba(117, 190, 218, 0.3);
-    }
-  }
-
-  @keyframes slideInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeInScale {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite;
-  }
-
-  .animate-slide-up {
-    animation: slideInUp 0.6s ease-out forwards;
-  }
-
-  .animate-fade-scale {
-    animation: fadeInScale 0.8s ease-out forwards;
-  }
-
-  /* Completely removed theme() functions and used direct color values */
-  .gradient-text {
-    background: linear-gradient(135deg, oklch(0.45 0.15 200), oklch(0.65 0.18 180));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .dark .gradient-text {
-    background: linear-gradient(135deg, oklch(0.75 0.18 180), oklch(0.85 0.2 180));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gradient-border {
-    position: relative;
-    background: linear-gradient(135deg, rgba(117, 190, 218, 0.1), rgba(136, 204, 238, 0.1));
-    border: 1px solid transparent;
-  }
-
-  .gradient-border::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    padding: 1px;
-    background: linear-gradient(135deg, oklch(0.45 0.15 200), oklch(0.65 0.18 180));
-    border-radius: inherit;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask-composite: xor;
-  }
-
-  .dark .gradient-border::before {
-    background: linear-gradient(135deg, oklch(0.75 0.18 180), oklch(0.85 0.2 180));
+  /* Numbers read as measured, not sold. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
   }
 }
 
-/* Smooth scrolling and improved typography */
 html {
   scroll-behavior: smooth;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+/* Every in-page anchor lands with its heading hidden under the fixed nav
+   without this. */
+:where(section[id]) {
+  scroll-margin-top: 6rem;
 }
 
-p {
-  line-height: 1.6;
+/* ---------------------------------------------------------------------------
+   Reduced motion — layer 1 (global CSS). Layer 2 is the JS short-circuit in
+   useInView, which renders final state immediately. A 0.01ms animation still
+   flickers; a correct fallback never animates at all.
+   ------------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

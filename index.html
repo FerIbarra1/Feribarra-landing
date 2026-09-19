@@ -1,15 +1,85 @@
-<html lang="en" class="h-full">
+<!doctype html>
+<html lang="es" class="h-full">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fernando Ibarra - Full Stack Developer</title>
-  <link rel="logo" type="image/x-icon" href="/favicon.ico" />
+  <title>Fernando Ibarra — Senior Backend / Full Stack Developer</title>
+  <meta name="description"
+    content="Senior Backend / Full Stack Developer con más de 4 años construyendo sistemas distribuidos: microservicios con NestJS, motores de pago dirigidos por mensajería y arquitecturas multi-inquilino." />
+  <meta name="author" content="Fernando Ibarra" />
+  <meta name="theme-color" content="#0c1015" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#fbfcfd" media="(prefers-color-scheme: light)" />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://feribarra.dev/" />
+
+  <!-- Open Graph / social sharing: a link with no preview card measurably loses clicks. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://feribarra.dev/" />
+  <meta property="og:title" content="Fernando Ibarra — Senior Backend / Full Stack Developer" />
+  <meta property="og:description"
+    content="Sistemas distribuidos, microservicios NestJS y motores de pago. Más de 4 años llevando backend a producción." />
+  <meta property="og:image" content="/og.png" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fernando Ibarra — Senior Backend / Full Stack Developer" />
+  <meta name="twitter:description"
+    content="Sistemas distribuidos, microservicios NestJS y motores de pago. Más de 4 años llevando backend a producción." />
+  <meta name="twitter:image" content="/og.png" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Fernando Ibarra",
+      "jobTitle": "Senior Backend / Full Stack Developer",
+      "email": "mailto:fernandooibarra@gmail.com",
+      "telephone": "+52-662-291-4052",
+      "url": "https://feribarra.dev/",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hermosillo",
+        "addressRegion": "Sonora",
+        "addressCountry": "MX"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Tecnológico Nacional de México, Campus Hermosillo"
+      },
+      "knowsLanguage": ["es", "en"],
+      "knowsAbout": [
+        "Node.js", "NestJS", "TypeScript", "Microservices", "RabbitMQ", "Redis",
+        "Prisma", "SQL Server", "PostgreSQL", "React", "Next.js", "Docker"
+      ],
+      "sameAs": [
+        "https://www.github.com/feribarra1",
+        "https://www.linkedin.com/in/feribarra1/"
+      ]
+    }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
     rel="stylesheet">
+
+  <!-- Apply the stored theme before first paint. Without this, dark-mode users
+       see a white flash on every load: the theme is otherwise applied in a
+       useEffect after mount. -->
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("theme");
+        var dark = stored
+          ? stored === "dark"
+          : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+      } catch (e) { /* private mode / blocked site data */ }
+    })();
+  </script>
 </head>
 
 <body class="h-full font-sans antialiased">

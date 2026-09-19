@@ -16,7 +16,7 @@ export function CertificationsSection() {
                 </div>
 
                 <div className="max-w-6xl mx-auto space-y-12">
-                    {providers.map((provider: any, providerIndex: number) => (
+                    {providers.map((provider, providerIndex) => (
                         <div key={providerIndex}>
                             <div className="flex items-center gap-3 mb-8">
                                 <Award className="h-6 w-6 text-primary" />
@@ -24,14 +24,14 @@ export function CertificationsSection() {
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {provider.certifications.map((cert: any, certIndex: number) => (
+                                {provider.certifications.map((cert, certIndex) => (
                                     <Card
                                         key={certIndex}
                                         className="hover:shadow-lg transition-all duration-300 group border-0 bg-card/50 backdrop-blur-sm hover:bg-card/80 hover:-translate-y-1 pt-0"
                                     >
                                         <div className="relative h-auto w-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center border-b rounded-t-xl">
                                             {/* Certificate image would go here */}
-                                            <img src={cert.image} className="w-full h-auto rounded-t-xl" alt={cert.name} />
+                                            <img src={cert.image} alt={cert.name} width={1200} height={900} loading="lazy" decoding="async" className="w-full h-auto rounded-t-xl" />
                                             <div className="absolute top-2 right-2">
                                                 <Badge variant="secondary" className="text-xs text-white">
                                                     {provider.provider}

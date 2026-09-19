@@ -1,21 +1,27 @@
 import { useMemo } from "react"
-import ProyectoVotometrica from "@/assets/ProyectoVotometrica.png"
-import ProyectoRealDeal from "@/assets/ProyectoRealDeal.png"
-import ProyectoWFacturas from "@/assets/ProyectoWFacturas.png"
-import ProyectoVR from "@/assets/ProyectoVR.png"
-import ProyectoEntrify from "@/assets/ProyectoEntrify.png"
+import ProyectoVotometrica from "@/assets/optimized/ProyectoVotometrica.jpg"
+import ProyectoRealDeal from "@/assets/optimized/ProyectoRealDeal.jpg"
+import ProyectoWFacturas from "@/assets/optimized/ProyectoWFacturas.jpg"
+import ProyectoVR from "@/assets/optimized/ProyectoVR.jpg"
+import ProyectoEntrify from "@/assets/optimized/ProyectoEntrify.jpg"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ExternalLink } from "lucide-react"
 import { useI18n } from "@/i18n"
 
+const images: Record<string, string> = {
+    ProyectoVotometrica,
+    ProyectoRealDeal,
+    ProyectoWFacturas,
+    ProyectoVR,
+    ProyectoEntrify,
+}
+
 export function ProjectsSection() {
     const { dict, t } = useI18n()
-    // const [currentProject, setCurrentProject] = useState(0)
 
-    const images = { ProyectoVotometrica, ProyectoRealDeal, ProyectoWFacturas, ProyectoVR, ProyectoEntrify } as const
     const projects = useMemo(() =>
-        dict.projects.map((p) => ({ ...p, image: (images as any)[p.imageKey] })),
+        dict.projects.map((p) => ({ ...p, image: images[p.imageKey] })),
         [dict.projects]
     )
 
@@ -57,7 +63,7 @@ export function ProjectsSection() {
                                             <h3 className="text-lg font-semibold">{project.title}</h3>
                                         </div>
                                     </div> */}
-                                    <img src={project.image} alt={project.title} className="w-full h-full object-cover object-center" />
+                                    <img src={project.image} alt={project.title} width={1400} height={788} loading="lazy" decoding="async" className="w-full h-full object-cover object-center" />
                                     {/* Hover overlay */}
                                     <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 </div>
@@ -139,7 +145,7 @@ export function ProjectsSection() {
                                     </div>
                                 </div> */}
 
-                                <img src={projects[0].image} alt={projects[0].title} className="w-full h-64 lg:h-auto object-cover object-center" />
+                                <img src={projects[0].image} alt={projects[0].title} width={1400} height={788} decoding="async" className="w-full h-64 lg:h-auto object-cover object-center" />
 
                                 {/* Featured Project Content */}
                                 <CardContent className="flex flex-col justify-center p-8 lg:p-12">

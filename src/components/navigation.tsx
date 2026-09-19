@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { LanguageToggle } from "@/components/language-toggle"
 import { Menu, X } from "lucide-react"
-import logo from "./../assets/FILogo.png"
+import logo from "@/assets/optimized/FILogo.jpg"
 import { useI18n } from "@/i18n"
 
 export function Navigation() {
@@ -38,7 +38,7 @@ export function Navigation() {
                     <div className="relative">
                         <div className="h-12 w-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105 animate-glow">
                             {/* <span className="text-white font-bold text-xl">FI</span> */}
-                            <img src={logo} alt="Logo" className="h-12 w-12" />
+                            <img src={logo} alt="Fernando Ibarra" width={48} height={48} decoding="async" className="h-12 w-12" />
                         </div>
                     </div>
 

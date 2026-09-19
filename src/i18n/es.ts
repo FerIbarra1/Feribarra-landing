@@ -6,15 +6,20 @@ export const es = {
     skills: "Habilidades",
     projects: "Proyectos",
     certifications: "Certificaciones",
+    education: "Formación",
     contact: "Contacto",
   },
   hero: {
     name: "Fernando Ibarra",
-    role: "Desarrollador Full Stack",
+    eyebrow: "SENIOR BACKEND ENGINEER · HERMOSILLO, MX · REMOTO",
+    role: "Senior Backend / Full Stack Developer",
     description:
-      "Desarrollador React con más de 4 años de experiencia creando aplicaciones web y móviles escalables y de alto rendimiento.",
-    ctaProjects: "Ver Proyectos",
+      "Diseño y llevo a producción sistemas backend distribuidos: microservicios con NestJS, motores de pago dirigidos por mensajería, y el trabajo poco vistoso de hacerlos correctos bajo carga.",
+    ctaProjects: "Ver el trabajo",
     ctaContact: "Contactar",
+    ctaCv: "Descargar CV",
+    status: "Disponible para proyectos · Actualmente en Rocket Code",
+    stackLine: "NestJS · RabbitMQ · Redis · SQL Server · React",
     socialGithub: "GitHub",
     socialLinkedin: "LinkedIn",
     socialEmail: "Email",
@@ -36,19 +41,24 @@ export const es = {
     subtitle: "Mi trayectoria profesional desarrollando soluciones tecnológicas innovadoras",
   },
   skillsSection: {
-    title: "Habilidades Técnicas",
+    title: "Stack Técnico",
     subtitle:
-      "Tecnologías y herramientas con las que trabajo para crear soluciones innovadoras",
+      "Tecnologías y herramientas, con el contexto donde las usé.",
+    usedInLabel: "Usado en",
+    integrationsLabel: "Integraciones",
+    integrations: [
+      "Sistemas de pago", "Sistemas legacy", "APIs de terceros", "Keycloak", "OpenAI API", "Firebase"
+    ],
     categories: [
       {
-        title: "Frontend", skills: [
-          "React.js", "React Native", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Shadcn/UI", "Bootstrap", "CSS", "SASS"
+        title: "Frontend", usedIn: "Trabajo de cliente · Proyectos propios", skills: [
+          "React", "React Native", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "shadcn/ui", "Zustand", "TanStack Query", "React Router", "React Hook Form", "Zod"
         ]
       },
-      { title: "Backend", skills: ["Node.js", "Nest.js", "Express.js"] },
-      { title: "Bases de Datos", skills: ["PostgreSQL", "MongoDB", "TypeORM", "Prisma"] },
-      { title: "DevOps & Herramientas", skills: ["Docker", "Git", "GitHub", "WebSockets", "NPM"] },
-      { title: "Otros", skills: ["OpenAI API", "Firebase", "Zustand", "TanStack Query", "React Router"] },
+      { title: "Backend", usedIn: "Plataforma de seguros · Trabajo de cliente", skills: ["Node.js", "NestJS", "Express.js", "REST APIs", "Microservices", "WebSockets"] },
+      { title: "Arquitectura y Mensajería", usedIn: "Plataforma de seguros", skills: ["Clean Architecture", "Hexagonal (Ports & Adapters)", "DDD", "RabbitMQ", "Redis", "BullMQ", "Comunicación asíncrona"] },
+      { title: "Bases de Datos", usedIn: "Plataforma de seguros · Trabajo de cliente", skills: ["SQL Server", "PostgreSQL", "MongoDB", "Prisma", "TypeORM"] },
+      { title: "DevOps & Herramientas", usedIn: "Plataforma de seguros", skills: ["Docker", "Git", "GitLab CI", "ArgoCD", "Kubernetes", "NPM", "PNPM", "Sentry"] },
     ],
   },
   certificationsSection: {
@@ -63,7 +73,7 @@ export const es = {
             name: "Generative AI Professional Essentials, by Microsoft and LinkedIn",
             description:
               "Aprende los fundamentos de la IA generativa (LLMs, prompts, riesgos y ética) y cómo aplicarla en el trabajo con herramientas como Microsoft Copilot para automatizar tareas y potenciar la creatividad.",
-            technologies: ["Inteligence Artificial", "AI Generative"],
+            technologies: ["Inteligencia Artificial", "IA Generativa"],
             url: "https://www.linkedin.com/learning/certificates/557f513e7ac29edaff10120c047fcaa20e14f49ad5cb22ada78fb992a133c298",
             image: "https://i.imgur.com/KZfZAxN.jpeg",
           },
@@ -72,7 +82,7 @@ export const es = {
             description:
               "Panorama del rol de SysAdmin: administración de entornos on-premise y cloud, virtualización, almacenamiento, seguridad, herramientas clave y ruta de desarrollo profesional.",
             technologies: ["System Administration"],
-            url: "https://www.linkedin.com/learning/certificates/6102dccfffdf2a7957f2b873e9b085e337a12fb2e79240241ce644d998838a5d?trk=share_certificate",
+            url: "https://www.linkedin.com/learning/certificates/6102dccfffdf2a7957f2b873e9b085e337a12fb2e79240241ce644d998838a5d",
             image: "https://i.imgur.com/j6bKiCz.jpeg",
           },
           {
@@ -80,7 +90,7 @@ export const es = {
             description:
               "Fundamentos de desarrollo de software: pensamiento computacional, estructuras de datos y control de flujo, principios de programación y buenas prácticas aplicadas a distintos lenguajes.",
             technologies: ["Software Development", "Programming"],
-            url: "https://www.linkedin.com/learning/certificates/099ea9806183134afcfa1ba686fc97525ac1e387ae7838aee28dd6db7fa5d48a?trk=share_certificate",
+            url: "https://www.linkedin.com/learning/certificates/099ea9806183134afcfa1ba686fc97525ac1e387ae7838aee28dd6db7fa5d48a",
             image: "https://i.imgur.com/Ey2UJyU.jpeg",
           },
         ],
@@ -113,6 +123,14 @@ export const es = {
             image: "https://i.imgur.com/WzpvI6C.jpeg",
           },
           {
+            name: "React: De cero a experto (edición actualizada)",
+            description:
+              "Actualización del curso de React: repaso de fundamentos y adopción de las prácticas vigentes del ecosistema, con Hooks, composición de componentes y patrones modernos de desarrollo.",
+            technologies: ["React", "Hooks", "TypeScript"],
+            url: "https://cursos.devtalles.com/certificates/grfoac6egq",
+            image: "https://i.imgur.com/nssarnF.jpeg",
+          },
+          {
             name: "TypeScript: Tu completa guía y manual de mano.",
             description:
               "TypeScript de principio a fin: tipado estático, interfaces, genéricos, util types, configuración del compilador y uso con frameworks modernos.",
@@ -133,7 +151,7 @@ export const es = {
             description:
               "Uso profesional de TanStack Query para datos remotos: caché, invalidaciones, reintentos, sincronización en segundo plano, SSR y patrones de fetching en React.",
             technologies: ["TanStack Query", "React"],
-            url: "https://cursos.devtalles.com/certificates/irg3nsjnzjl",
+            url: "https://cursos.devtalles.com/certificates/irg3nsjnzj",
             image: "https://i.imgur.com/3OZvkWV.jpeg",
           },
           {
@@ -226,18 +244,89 @@ export const es = {
     toastError: "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.",
     sending: "Enviando...",
   },
+  metrics: {
+    title: "Impacto",
+    intro:
+      "Contribuciones seleccionadas a una plataforma de seguros multi-inquilino — una flota de microservicios NestJS al servicio de marcas minoristas nacionales. Las cifras son conteos tomados del código.",
+    items: [
+      { value: "11", label: "microservicios", qualifier: "Clean Architecture + Hexagonal + DDD uniforme" },
+      { value: "53", label: "estrategias de pago", qualifier: "detrás de un solo dispatcher (4 métodos × 18 dominios)" },
+      { value: "63", label: "esquemas de base de datos", qualifier: "uno por inquilino por dominio" },
+      { value: "4+", label: "años en producción", qualifier: "software enviado a usuarios reales" },
+    ],
+    honestyFootnote:
+      "Proyecto en equipo. Contribuí a los servicios de pago y al SPA; no construí esto solo. Las cifras son conteos del código, no afirmaciones de autoría.",
+  },
+  enterpriseCase: {
+    eyebrow: "PLATAFORMA EMPRESARIAL · 2025 — PRESENTE",
+    title: "Una plataforma de seguros multi-inquilino",
+    body: [
+      "Once servicios backend en una flota NestJS, un SPA en React y seis realms de identidad. Trabajé en el dominio de pagos: una matriz de estrategias que cubre 4 métodos de pago sobre 18 dominios de producto, con dos puertas de entrada (REST y una cola RPC) convergiendo en un solo dispatcher.",
+      "Arquitectura limpia (Ports & Adapters) con separación de dominios, comunicación entre servicios por RabbitMQ, trabajo asíncrono con Redis y BullMQ, y persistencia con Prisma sobre SQL Server — una base de datos por inquilino, resuelta desde el JWT en cada petición en lugar de migrar el esquema legacy compartido.",
+    ],
+    tech: ["NestJS", "RabbitMQ", "Redis", "Prisma", "SQL Server", "Keycloak", "Docker", "ArgoCD"],
+    patternsLabel: "Patrones",
+    patterns: "Clean Architecture · Ports & Adapters · DDD · database-per-tenant desde JWT",
+    strategyMatrixLabel: "Matriz de estrategias",
+    strategyMatrixValue: "53 estrategias · 4 métodos × 18 dominios",
+  },
+  educationSection: {
+    title: "Formación",
+    degree: "Licenciatura en Desarrollo de Software",
+    institution: "Tecnológico Nacional de México, Campus Hermosillo",
+    period: "Ago 2017 – Dic 2024",
+    location: "Hermosillo, Sonora, México",
+  },
+  languagesSection: {
+    title: "Idiomas",
+    items: [
+      { language: "Español", level: "Nativo" },
+      { language: "English", level: "Competencia profesional básica" },
+    ],
+  },
+  cvBand: {
+    title: "El CV completo",
+    subtitle: "Dos páginas con la trayectoria, el stack y las certificaciones.",
+    downloadEs: "Descargar CV (ES)",
+    downloadEn: "Download CV (EN)",
+    meta: "PDF · 2 páginas",
+  },
+  footer: {
+    tagline: "Senior Backend / Full Stack Developer — sistemas distribuidos, microservicios y motores de pago.",
+    rights: "Todos los derechos reservados.",
+    backToTop: "Volver arriba",
+    builtWith: "Hecho con React 19 · Vite 7 · Tailwind 4",
+  },
   experiences: [
+    {
+      company: "Rocket Code",
+      position: "Senior Backend Developer",
+      period: "Nov 2025 – Presente",
+      location: "Hermosillo, Sonora, México (Remoto)",
+      description: [
+        "Desarrollo y mantenimiento de servicios backend con Node.js, TypeScript y NestJS dentro de una arquitectura de microservicios.",
+        "Implementación de comunicación entre microservicios mediante RabbitMQ, incluyendo mensajería, procesamiento asíncrono y preservación de correlationId en llamadas RPC.",
+        "Desarrollo e integración de servicios de procesamiento de pagos, conectando microservicios nuevos con sistemas backend existentes.",
+        "Análisis de la lógica de negocio legacy para asegurar que las nuevas implementaciones preserven el comportamiento funcional establecido.",
+        "Diseño de la persistencia con Prisma sobre SQL Server, incluyendo atomicidad transaccional en flujos de pago.",
+        "Containerización de servicios backend con Docker y preparación para distintos ambientes de despliegue.",
+        "Resolución de problemas de integración, consistencia de datos y comunicación entre servicios distribuidos.",
+      ],
+      technologies: ["NestJS", "TypeScript", "Node.js", "RabbitMQ", "Redis", "Prisma", "SQL Server", "Docker"],
+    },
     {
       company: "INOWU Development",
       position: "Full Stack Developer",
-      period: "Dic 2023 – Presente",
+      period: "Dic 2023 – Nov 2025",
       location: "Hermosillo, Sonora, México (Híbrido)",
       description: [
-        "Desarrollo full‑stack con React, Next.js, Nest.js, PostgreSQL",
-        "Construcción y mantenimiento de aplicaciones web responsivas y APIs",
-        "Resolución de problemas complejos en proyectos nacionales e internacionales",
+        "Desarrollo full‑stack con React, Next.js, NestJS y PostgreSQL.",
+        "Construcción y mantenimiento de aplicaciones web responsivas y APIs REST.",
+        "Resolución de problemas técnicos complejos, mejorando rendimiento, estabilidad y confiabilidad.",
+        "Participación en la modernización de sistemas existentes, incluyendo integración entre sistemas legacy y nuevas plataformas web.",
+        "Implementación de procesos de sincronización entre sistemas legacy y plataformas cloud mediante procesos automatizados, triggers y servicios backend.",
       ],
-      technologies: ["React", "Next.js", "Nest.js", "PostgreSQL"],
+      technologies: ["React", "Next.js", "NestJS", "PostgreSQL", "TypeScript"],
     },
     {
       company: "IGRTEC",
@@ -245,9 +334,11 @@ export const es = {
       period: "Sep 2023 – Dic 2024",
       location: "Remoto",
       description: [
-        "Lideré un equipo de desarrolladores móviles construyendo apps multiplataforma",
-        "Implementé mejores prácticas en calidad de código y optimización de rendimiento",
-        "Gestión de control de versiones y metodologías ágiles",
+        "Liderazgo de un equipo de desarrolladores enfocado en aplicaciones móviles multiplataforma con React Native.",
+        "Definición y aplicación de buenas prácticas de desarrollo y organización del código.",
+        "Revisión de código y apoyo técnico al equipo durante el desarrollo de funcionalidades.",
+        "Implementación de estrategias para mejorar rendimiento, estabilidad y mantenibilidad de aplicaciones móviles.",
+        "Coordinación de flujos de trabajo mediante Git y control de versiones.",
       ],
       technologies: ["React Native", "TypeScript", "Git", "Team Leadership"],
     },
@@ -261,8 +352,6 @@ export const es = {
       imageKey: "ProyectoVotometrica",
       technologies: ["Next JS", "React", "TypeScript", "TypeORM", "PostgreSQL", "Leaflet/Maps", "OCR/IA"],
       liveUrl: "https://www.votometrica.com",
-      githubUrl: "#",
-      colors: { primary: "#0a97b0", secondary: "#0a97b080", accent: "#0a97b0", shadow: "14 165 233" },
     },
     {
       id: 2,
@@ -272,8 +361,6 @@ export const es = {
       imageKey: "ProyectoRealDeal",
       technologies: ["Next JS", "React", "TypeScript", "Stripe", "MongoDB", "Node JS"],
       liveUrl: "https://www.realdealjc.com",
-      githubUrl: "#",
-      colors: { primary: "#19b64f", secondary: "#19b64f", accent: "#19b64f", shadow: "183 245 200" },
     },
     {
       id: 3,
@@ -283,8 +370,6 @@ export const es = {
       imageKey: "ProyectoWFacturas",
       technologies: ["Next JS", "React", "TypeScript", "Node JS", "PostgreSQL", "CFDI", "Timbrado SAT"],
       liveUrl: "https://wfacturas.com",
-      githubUrl: "#",
-      colors: { primary: "#4ca647", secondary: "#4ca647", accent: "#4ca647", shadow: "22 163 74" },
     },
     {
       id: 4,
@@ -294,8 +379,6 @@ export const es = {
       imageKey: "ProyectoVR",
       technologies: ["Next JS", "React", "TypeScript", "Nest JS", "Redis", "AWS S3", "Prisma"],
       liveUrl: "https://videoremixespacks.com",
-      githubUrl: "#",
-      colors: { primary: "#ec0932", secondary: "#ec0932", accent: "#ec0932", shadow: "6 182 212" },
     },
     {
       id: 5,
@@ -305,8 +388,6 @@ export const es = {
       imageKey: "ProyectoEntrify",
       technologies: ["Next JS", "React", "TypeScript", "SASS"],
       liveUrl: "https://www.entrify.mx",
-      githubUrl: "#",
-      colors: { primary: "#1b263b", secondary: "#1b263b", accent: "#1b263b", shadow: "14 165 233" },
     },
   ],
 }

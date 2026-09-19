@@ -16,7 +16,7 @@ export function ExperienceSection() {
                 </div>
 
                 <div className="max-w-4xl mx-auto space-y-8">
-                    {dict.experiences.map((exp: any, index: number) => (
+                    {dict.experiences.map((exp, index) => (
                         <Card key={index} className="hover:shadow-lg transition-shadow">
                             <CardHeader>
                                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
