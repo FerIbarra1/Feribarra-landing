@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 import toast from "react-hot-toast";
 import { useI18n } from "@/i18n/use-i18n";
 import { useInView } from "@/hooks/use-in-view";
