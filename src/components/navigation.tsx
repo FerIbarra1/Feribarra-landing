@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { LanguageToggle } from "@/components/language-toggle"
 import { Menu, X } from "lucide-react"
-import logo from "@/assets/optimized/FILogo.jpg"
 import { useI18n } from "@/i18n/use-i18n"
 
 export function Navigation() {
@@ -95,14 +94,29 @@ export function Navigation() {
                         aria-label={t("nav.home")}
                         className="shrink-0 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
                     >
-                        <img
-                            src={logo}
-                            alt="Fernando Ibarra"
-                            width={48}
-                            height={48}
-                            decoding="async"
-                            className="h-12 w-12 rounded-full"
-                        />
+                        <span
+                            aria-hidden="true"
+                            className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground/15 bg-background text-foreground"
+                        >
+                            <svg
+                                viewBox="0 0 48 48"
+                                className="h-7 w-7"
+                                fill="currentColor"
+                            >
+                                <text
+                                    x="50%"
+                                    y="54%"
+                                    textAnchor="middle"
+                                    dominantBaseline="middle"
+                                    fontFamily="Inter, ui-sans-serif, system-ui, sans-serif"
+                                    fontWeight="600"
+                                    fontSize="22"
+                                    letterSpacing="-0.04em"
+                                >
+                                    FI
+                                </text>
+                            </svg>
+                        </span>
                     </a>
 
                     <div className="hidden md:flex items-center gap-8">
