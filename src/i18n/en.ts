@@ -61,7 +61,7 @@ export const en = {
       { title: "Backend", skills: ["Node.js", "NestJS", "Express.js", "REST APIs", "Microservices", "WebSockets"] },
       { title: "Architecture & Messaging", skills: ["Clean Architecture", "Hexagonal (Ports & Adapters)", "DDD", "RabbitMQ", "Redis", "BullMQ", "Asynchronous communication"] },
       { title: "Databases", skills: ["SQL Server", "PostgreSQL", "MongoDB", "Prisma", "TypeORM"] },
-      { title: "DevOps & Tools", skills: ["Docker", "Git", "GitLab CI", "ArgoCD", "Kubernetes", "NPM", "PNPM", "Sentry"] },
+      { title: "DevOps & Tools", skills: ["Docker", "Git", "GitLab CI", "NPM", "PNPM", "Sentry"] },
     ],
   },
   certificationsSection: {
@@ -259,16 +259,16 @@ export const en = {
       { value: "4+", label: "years in production", qualifier: "software shipped to real users" },
     ],
     honestyFootnote:
-      "Team project. I contributed to the payment services and the SPA; I did not build this alone. Numbers are counts from the codebase, not claims of authorship.",
+      "Team project. I work across the commercial area: payments, policy administration, reporting and document handling. I did not build this alone. Numbers are counts from the codebase, not claims of authorship.",
   },
   enterpriseCase: {
     eyebrow: "ENTERPRISE PLATFORM · 2025 — PRESENT",
     title: "A multi-tenant insurance platform",
     body: [
-      "Eleven backend services in a NestJS fleet, one React SPA, and six identity realms. I worked on the payment domain: a strategy matrix spanning 4 payment methods across 18 product domains, with two entry doors (REST and an RPC queue) converging on one dispatcher.",
+      "Eleven backend services in a NestJS fleet, one React SPA, and six identity realms. I work across the platform's commercial area: the payment domain — a strategy matrix spanning 4 payment methods across 18 product domains, with two entry doors (REST and an RPC queue) converging on one dispatcher — plus policy administration, reporting and document handling.",
       "Clean Architecture (Ports & Adapters) with domain separation, RabbitMQ service-to-service communication, Redis and BullMQ async work, and Prisma persistence on SQL Server — one database per tenant, resolved from the JWT on every request instead of migrating the shared legacy schema.",
     ],
-    tech: ["NestJS", "RabbitMQ", "Redis", "Prisma", "SQL Server", "Keycloak", "Docker", "ArgoCD"],
+    tech: ["NestJS", "RabbitMQ", "Redis", "Prisma", "SQL Server", "Keycloak", "Docker"],
     patternsLabel: "Patterns",
     patterns: "Clean Architecture · Ports & Adapters · DDD · database-per-tenant from JWT",
     strategyMatrixLabel: "Strategy matrix",

@@ -61,7 +61,7 @@ export const es = {
       { title: "Backend", skills: ["Node.js", "NestJS", "Express.js", "REST APIs", "Microservices", "WebSockets"] },
       { title: "Arquitectura y Mensajería", skills: ["Clean Architecture", "Hexagonal (Ports & Adapters)", "DDD", "RabbitMQ", "Redis", "BullMQ", "Comunicación asíncrona"] },
       { title: "Bases de Datos", skills: ["SQL Server", "PostgreSQL", "MongoDB", "Prisma", "TypeORM"] },
-      { title: "DevOps & Herramientas", skills: ["Docker", "Git", "GitLab CI", "ArgoCD", "Kubernetes", "NPM", "PNPM", "Sentry"] },
+      { title: "DevOps & Herramientas", skills: ["Docker", "Git", "GitLab CI", "NPM", "PNPM", "Sentry"] },
     ],
   },
   certificationsSection: {
@@ -259,16 +259,16 @@ export const es = {
       { value: "4+", label: "años en producción", qualifier: "software enviado a usuarios reales" },
     ],
     honestyFootnote:
-      "Proyecto en equipo. Contribuí a los servicios de pago y al SPA; no construí esto solo. Las cifras son conteos del código, no afirmaciones de autoría.",
+      "Proyecto en equipo. Trabajo en el área comercial: pagos, administración de pólizas, reportes y manejo de documentos. No construí esto solo. Las cifras son conteos del código, no afirmaciones de autoría.",
   },
   enterpriseCase: {
     eyebrow: "PLATAFORMA EMPRESARIAL · 2025 — PRESENTE",
     title: "Una plataforma de seguros multi-inquilino",
     body: [
-      "Once servicios backend en una flota NestJS, un SPA en React y seis realms de identidad. Trabajé en el dominio de pagos: una matriz de estrategias que cubre 4 métodos de pago sobre 18 dominios de producto, con dos puertas de entrada (REST y una cola RPC) convergiendo en un solo dispatcher.",
+      "Once servicios backend en una flota NestJS, un SPA en React y seis realms de identidad. Trabajo en el área comercial de la plataforma: el dominio de pagos — una matriz de estrategias que cubre 4 métodos de pago sobre 18 dominios de producto, con dos puertas de entrada (REST y una cola RPC) convergiendo en un solo dispatcher — además de administración de pólizas, reportes y manejo de documentos.",
       "Arquitectura limpia (Ports & Adapters) con separación de dominios, comunicación entre servicios por RabbitMQ, trabajo asíncrono con Redis y BullMQ, y persistencia con Prisma sobre SQL Server — una base de datos por inquilino, resuelta desde el JWT en cada petición en lugar de migrar el esquema legacy compartido.",
     ],
-    tech: ["NestJS", "RabbitMQ", "Redis", "Prisma", "SQL Server", "Keycloak", "Docker", "ArgoCD"],
+    tech: ["NestJS", "RabbitMQ", "Redis", "Prisma", "SQL Server", "Keycloak", "Docker"],
     patternsLabel: "Patrones",
     patterns: "Clean Architecture · Ports & Adapters · DDD · database-per-tenant desde JWT",
     strategyMatrixLabel: "Matriz de estrategias",
